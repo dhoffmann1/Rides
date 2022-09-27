@@ -22,83 +22,80 @@ def get_filtered_results():
 #GET Car Details by Car ID
 @car_routes.route('/<int:car_id>')
 def get_car_details(car_id):
-  car = Car.query.get(car_id)
-  if car == None:
-    return { 'message': 'Car could not be found' }, 404
+  car = Car.query.get_or_404(car_id)
   return car.to_dict()
 
 #POST/Create new Car for sale
-@car_routes.route('', methods = ['POST'])
+@car_routes.route('', method=['POST'])
 @login_required
 def create_car():
-  form = CarForm()
-  form['csrf_token'].data = request.cookies['csrf_token']
-  if form.validate_on_submit():
-    try:
-      new_car = Car(
-        seller_id = int(current_user.id),
-        year= int(form.data['year']),
-        make = str(form.data['make']),
-        model = str(form.data['model']),
-        trim = str(form.data['trim']),
-        miles = int(form.data['miles']),
-        price = int(form.data['price']),
-        condition = str(form.data['condition']),
-        new = form.data['new'],
-        ex_color = str(form.data['ex_color']),
-        in_color = str(form.data['in_color']),
-        drivetrain = str(form.data['drivetrain']),
-        mpg = int(form.data['mpg']),
-        fuel_type = str(form.data['fuel_type']),
-        transmission = str(form.data['transmission']),
-        engine = str(form.data['engine']),
-        user = current_user
-      )
-    except:
-      return { "error": "Could not create new car" }, 404
-    db.session.add(new_car)
-    db.session.commit()
-    # created_post = Post.query.filter(current_user.id == post.owner_id).order_by(Post.created_at.desc()).first()
-    return new_car.to_dict(), 201
-  return { "errors": validation_errors_to_error_messages(form.errors) }, 400
+  # form = CarForm()
+  # form['csrf_token'].data = request.cookies['csrf_token']
+  print(request.form)
+  # if form.validate_on_submit()
+  new_car = Car(
+    seller_id = int(current_user.id),
+    **request.form,
+    # year= int(form.data['year']),
+    # make = str(form.data['make']),
+    # model = str(form.data['model']),
+    # trim = str(form.data['trim']),
+    # miles = int(form.data['miles']),
+    # price = int(form.data['price']),
+    # condition = str(form.data['condition']),
+    # new = form.data['new'],
+    # ex_color = str(form.data['ex_color']),
+    # in_color = str(form.data['in_color']),
+    # drivetrain = str(form.data['drivetrain']),
+    # mpg = int(form.data['mpg']),
+    # fuel_type = str(form.data['fuel_type']),
+    # transmission = str(form.data['transmission']),
+    # engine = str(form.data['engine']),
+    user = current_user
+  )
+  # except:
+  #   return { "error": "Could not create new car" }, 404
+  db.session.add(new_car)
+  db.session.commit()
+  return new_car.to_dict(), 201
+  # return { "errors": validation_errors_to_error_messages(form.errors) }, 400
 
 
 #PUT/Update car by car ID
 
-@car_routes.route('/<int:car_id>', methods = ['PUT'])
+@car_routes.route('/<int:car_id>', method=['PUT'])
 @login_required
 def update_car_details(car_id):
   form = CarForm()
   form['csrf_token'].data = request.cookies['csrf_token']
-  car_to_update = Car.query.get(int(car_id))
-  if car_to_update == None:
-    return { "error": "Car could not be found" }, 404
+  car_to_update = Car.query.get_or_404(car_id)
+
   if car_to_update.seller_id != current_user.id:
     return { "error": "Forbidden.  This is not your car" }, 403
 
   if form.validate_on_submit():
-    new_data = json.load(request.data)
-    print ('new_data', new_data)
-    for k, v in new_data.items():
-      setattr(car_to_update, k, v)
-
+    # new_data = json.load(request.data)
+    # print ('new_data', new_data)
+    # for k, v in new_data.items():
+    #   setattr(car_to_update, k, v)
+    for key, value in request.form:
+      setattr(car_to_update, key, value)
     db.session.commit()
-    updated_car = Car.query.get(int(car_id))
-    return updated_car.to_dict()
-
+    return car_to_update.to_dict()
   return { "errors": validation_errors_to_error_messages(form.errors) }, 400
 
 
 #DELETE car by car ID
 
-@car_routes.route('/<int:car_id>', methods = ['DELETE'])
+@car_routes.route('/<int:car_id>', method=['DELETE'])
 @login_required
 def delete_car(car_id):
-  car_to_delete = Car.query.get(int(car_id))
-  if car_to_delete == None:
-    return { "error": "Car could not be found" }, 404
+  car_to_delete = Car.query.get_or_404(car_id)
+  # if car_to_delete == None:
+  #   return { "error": "Car could not be found" }, 404
   if car_to_delete.seller_id != current_user.id:
     return { "error": "Forbidden.  This is not your car" }, 403
+
   db.session.delete(car_to_delete)
   db.session.commit()
   return { "message": "Successfully delete car" }, 200
