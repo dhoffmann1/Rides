@@ -29,36 +29,38 @@ def get_car_details(car_id):
 @car_routes.route('', method=['POST'])
 @login_required
 def create_car():
-  # form = CarForm()
-  # form['csrf_token'].data = request.cookies['csrf_token']
-  print(request.form)
-  # if form.validate_on_submit()
-  new_car = Car(
-    seller_id = int(current_user.id),
-    **request.form,
-    # year= int(form.data['year']),
-    # make = str(form.data['make']),
-    # model = str(form.data['model']),
-    # trim = str(form.data['trim']),
-    # miles = int(form.data['miles']),
-    # price = int(form.data['price']),
-    # condition = str(form.data['condition']),
-    # new = form.data['new'],
-    # ex_color = str(form.data['ex_color']),
-    # in_color = str(form.data['in_color']),
-    # drivetrain = str(form.data['drivetrain']),
-    # mpg = int(form.data['mpg']),
-    # fuel_type = str(form.data['fuel_type']),
-    # transmission = str(form.data['transmission']),
-    # engine = str(form.data['engine']),
-    user = current_user
-  )
-  # except:
-  #   return { "error": "Could not create new car" }, 404
-  db.session.add(new_car)
-  db.session.commit()
-  return new_car.to_dict(), 201
-  # return { "errors": validation_errors_to_error_messages(form.errors) }, 400
+  form = CarForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+  print('form.data from create car POST route', form.data)
+
+  if form.validate_on_submit():
+    try:
+      new_car = Car(
+        seller_id = int(current_user.id),
+        # **request.form,
+        year= int(form.data['year']),
+        make = form.data['make'],
+        model = form.data['model'],
+        trim = form.data['trim'],
+        miles = int(form.data['miles']),
+        price = int(form.data['price']),
+        condition = form.data['condition'],
+        new = form.data['new'],
+        ex_color = form.data['ex_color'],
+        in_color = form.data['in_color'],
+        drivetrain = form.data['drivetrain'],
+        mpg = int(form.data['mpg']),
+        fuel_type = form.data['fuel_type'],
+        transmission = form.data['transmission'],
+        engine = form.data['engine'],
+        user = current_user
+      )
+    except:
+      return { "error": "Could not create new car" }, 404
+    db.session.add(new_car)
+    db.session.commit()
+    return new_car.to_dict(), 201
+  return { "errors": validation_errors_to_error_messages(form.errors) }, 400
 
 
 #PUT/Update car by car ID
@@ -68,17 +70,16 @@ def create_car():
 def update_car_details(car_id):
   form = CarForm()
   form['csrf_token'].data = request.cookies['csrf_token']
+
+  print('form.data in Car PUT route', form.data)
+
   car_to_update = Car.query.get_or_404(car_id)
 
   if car_to_update.seller_id != current_user.id:
     return { "error": "Forbidden.  This is not your car" }, 403
 
   if form.validate_on_submit():
-    # new_data = json.load(request.data)
-    # print ('new_data', new_data)
-    # for k, v in new_data.items():
-    #   setattr(car_to_update, k, v)
-    for key, value in request.form:
+    for key, value in form.data:
       setattr(car_to_update, key, value)
     db.session.commit()
     return car_to_update.to_dict()
