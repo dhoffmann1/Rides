@@ -1,51 +1,50 @@
-#log-in-page-overall-container {
+#sign-up-page-overall-container {
   display: flex;
   margin-top: 50px;
   justify-content: center;
   width: 100%
 }
 
-#log-in-page-second-container {
+#sign-up-page-second-container {
   max-width: 1120px;
   width: 80%;
   padding-left: 80px;
   padding-right: 80px;
 }
 
-#log-in-page-grid {
+#sign-up-page-grid {
   /* padding-left: 80px;
   padding-right: 80px;
   max-width: 1120px; */
   justify-content: flex-start;
 }
 
-#log-in-welcome-text {
+#sign-up-welcome-text {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
 }
 
-#log-in-welcome-big-text {
+#sign-up-welcome-big-text {
   font-size: 1.8em;
   font-weight: bolder;
   margin-bottom: 15px;
 }
 
-#log-in-welcome-small-text {
+#sign-up-welcome-small-text {
   font-size: 0.8em;
 }
 
-#log-in-welcome-create-account-navlink {
+#sign-up-welcome-create-account-navlink {
   text-decoration: none;
   color: rgb(251, 160, 238);
 }
 
-
-#log-in-errors {
+#sign-up-errors {
   color: rgb(250, 114, 114);
 }
 
-.log-in-fields-class {
+.sign-up-fields-class {
   background-color: rgb(27, 27, 27);
   width: 400px;
   height: 50px;
@@ -68,7 +67,7 @@
   color: rgb(215, 215, 215);
 }
 
-.log-in-fields-class:focus {
+.sign-up-fields-class:focus {
   border: solid 2px rgb(86, 215, 250);
   outline: none;
 }
@@ -80,7 +79,7 @@ input:not(:focus):valid ~ .floating-label {
   opacity: .8;
 }
 
-.log-in-sign-in-submit-button {
+.sign-up-submit-button {
   text-decoration: none;
   color: rgb(215, 215, 215);
   background-color: #450e67;
@@ -95,7 +94,7 @@ input:not(:focus):valid ~ .floating-label {
   align-items: center;
 }
 
-.log-in-sign-in-submit-button:hover {
+.sign-up-submit-button:hover {
   background-color: #250838;
   border: solid #250838 2px;
   transition: 0.4s ease all;

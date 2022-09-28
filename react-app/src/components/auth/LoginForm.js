@@ -46,35 +46,34 @@ const LoginForm = () => {
               ))}
             </div>
             <div>
-              {/* <label htmlFor='email'>Email</label> */}
               <input
                 id='log-in-email-textfield'
                 className='log-in-fields-class'
                 name='email'
                 type='text'
-                // placeholder='Email'
                 value={email}
                 required
                 onChange={updateEmail}
               />
-              <span class="floating-label">Email</span>
+              <span className="floating-label">Email</span>
             </div>
             <div>
-              {/* <label htmlFor='password'>Password</label> */}
               <input
                 id='log-in-password-textfield'
                 className='log-in-fields-class'
                 name='password'
                 type='password'
-                // placeholder='Password'
                 value={password}
                 required
                 onChange={updatePassword}
               />
-              <span class="floating-label">Password</span>
+              <span className="floating-label">Password</span>
             </div>
-            <button class='log-in-sign-in-submit-button' type='submit'>Sign in</button>
-            <button class='log-in-sign-in-submit-button' type='submit'>Sign in as Demo User</button>
+            <button className='log-in-sign-in-submit-button' type='submit'>Sign in</button>
+            <button className='log-in-sign-in-submit-button' type='submit' onClick={(e) => {
+              setEmail('demo@aa.io')
+              setPassword('password')
+            }}>Sign in as Demo User</button>
           </form>
         </div>
       </div>
