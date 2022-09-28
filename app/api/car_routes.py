@@ -1,7 +1,7 @@
 from flask import Blueprint, session, request, redirect
 from flask_login import login_required, current_user
 from app.models import User, db, Car, Review
-from app.forms import LoginForm, SignUpForm, CarForm, ReviewForm
+from app.forms import LoginForm, SignUpForm, CarForm
 from .auth_routes import validation_errors_to_error_messages
 import json
 
@@ -26,18 +26,16 @@ def get_car_details(car_id):
   return car.to_dict()
 
 #POST/Create new Car for sale
-@car_routes.route('', method=['POST'])
+@car_routes.route('', methods=['POST'])
 @login_required
 def create_car():
   form = CarForm()
   form['csrf_token'].data = request.cookies['csrf_token']
-  print('form.data from create car POST route', form.data)
 
   if form.validate_on_submit():
     try:
       new_car = Car(
         seller_id = int(current_user.id),
-        # **request.form,
         year= int(form.data['year']),
         make = form.data['make'],
         model = form.data['model'],
@@ -65,13 +63,11 @@ def create_car():
 
 #PUT/Update car by car ID
 
-@car_routes.route('/<int:car_id>', method=['PUT'])
+@car_routes.route('/<int:car_id>', methods=['PUT'])
 @login_required
 def update_car_details(car_id):
   form = CarForm()
   form['csrf_token'].data = request.cookies['csrf_token']
-
-  print('form.data in Car PUT route', form.data)
 
   car_to_update = Car.query.get_or_404(car_id)
 
@@ -79,7 +75,7 @@ def update_car_details(car_id):
     return { "error": "Forbidden.  This is not your car" }, 403
 
   if form.validate_on_submit():
-    for key, value in form.data:
+    for key, value in form.data.items():
       setattr(car_to_update, key, value)
     db.session.commit()
     return car_to_update.to_dict()
@@ -88,7 +84,7 @@ def update_car_details(car_id):
 
 #DELETE car by car ID
 
-@car_routes.route('/<int:car_id>', method=['DELETE'])
+@car_routes.route('/<int:car_id>', methods=['DELETE'])
 @login_required
 def delete_car(car_id):
   car_to_delete = Car.query.get_or_404(car_id)
@@ -99,7 +95,7 @@ def delete_car(car_id):
 
   db.session.delete(car_to_delete)
   db.session.commit()
-  return { "message": "Successfully delete car" }, 200
+  return { "message": "Successfully deleted car" }, 200
 
 
 #GET Car reviews by car ID
