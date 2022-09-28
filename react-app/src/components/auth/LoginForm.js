@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { NavLink, Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
+import './LoginForm.css'
 
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
@@ -31,34 +32,53 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
-      <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
+    <div id='log-in-page-overall-container'>
+      <div id='log-in-page-second-container'>
+        <div id='log-in-page-grid'>
+          <div id='log-in-welcome-text'>
+            <div id='log-in-welcome-big-text'>Sign in</div>
+            <div id='log-in-welcome-small-text'>New to Rides? <NavLink id='log-in-welcome-create-account-navlink' to='./sign-up'>Create an account.</NavLink></div>
+          </div>
+          <form onSubmit={onLogin}>
+            <div id='log-in-errors'>
+              {errors.map((error, ind) => (
+                <div key={ind}>{error}</div>
+              ))}
+            </div>
+            <div>
+              {/* <label htmlFor='email'>Email</label> */}
+              <input
+                id='log-in-email-textfield'
+                className='log-in-fields-class'
+                name='email'
+                type='text'
+                // placeholder='Email'
+                value={email}
+                required
+                onChange={updateEmail}
+              />
+              <span class="floating-label">Email</span>
+            </div>
+            <div>
+              {/* <label htmlFor='password'>Password</label> */}
+              <input
+                id='log-in-password-textfield'
+                className='log-in-fields-class'
+                name='password'
+                type='password'
+                // placeholder='Password'
+                value={password}
+                required
+                onChange={updatePassword}
+              />
+              <span class="floating-label">Password</span>
+            </div>
+            <button class='log-in-sign-in-submit-button' type='submit'>Sign in</button>
+            <button class='log-in-sign-in-submit-button' type='submit'>Sign in as Demo User</button>
+          </form>
+        </div>
       </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
-          name='email'
-          type='text'
-          placeholder='Email'
-          value={email}
-          onChange={updateEmail}
-        />
-      </div>
-      <div>
-        <label htmlFor='password'>Password</label>
-        <input
-          name='password'
-          type='password'
-          placeholder='Password'
-          value={password}
-          onChange={updatePassword}
-        />
-        <button type='submit'>Login</button>
-      </div>
-    </form>
+    </div>
   );
 };
 
