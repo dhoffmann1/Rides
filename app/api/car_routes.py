@@ -3,7 +3,6 @@ from flask_login import login_required, current_user
 from app.models import User, db, Car, Review
 from app.forms import LoginForm, SignUpForm, CarForm
 from .auth_routes import validation_errors_to_error_messages
-import json
 
 
 car_routes = Blueprint('cars', __name__)
