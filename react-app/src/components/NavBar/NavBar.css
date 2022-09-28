@@ -1,0 +1,51 @@
+header {
+  width: 100%;
+  margin: 0;
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  border-bottom: solid #450e67 6px;
+  /* background-color: white; */
+}
+
+header > nav {
+  /* width: 80%px; */
+  padding-left: 80px;
+  padding-right: 80px;
+  height: 70px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1120px;
+  width: 80%;
+}
+
+#logo-image {
+  height: 60px;
+}
+
+#navbar-sell-your-car-login-navlink {
+  text-decoration: none;
+  color: rgb(215, 215, 215);
+  font-size: 1.2em;
+}
+
+#navbar-sell-your-car-login-navlink:hover {
+  text-decoration: underline;
+}
+
+#navbar-user-dropdown-div, #navbar-no-user-dropdown-div {
+  display: flex;
+  cursor: pointer;
+  font-size: 1.2em;
+  align-items: center;
+}
+
+#navbar-user-welcome-message, #navbar-Menu-word {
+  padding-left: 8px;
+}
+
+#navbar-user-welcome-message:hover, #navbar-Menu-word:hover {
+  text-decoration: underline;
+}

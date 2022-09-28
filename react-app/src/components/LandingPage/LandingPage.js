@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 // import Search from "../Search/Search.js";
 import "./LandingPage.css";
 
