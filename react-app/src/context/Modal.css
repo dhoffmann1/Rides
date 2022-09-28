@@ -20,8 +20,8 @@
 /* use this to center content inside modal! */
 #modal-content {
   position: absolute;
-  background-color: white;
-  height: 360px;
+  background-color: rgb(231, 231, 231);
+  height: 300px;
   width: 340px;
   /* max-width: 1000px; */
   display: flex;

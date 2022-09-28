@@ -1,0 +1,24 @@
+#usermenu-overall-container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-start;
+  align-items: flex-start; */
+  justify-content: space-between;
+  width: 85%;
+  height: 85%;
+}
+
+#user-text {
+  font-size: 1.4em;
+  color: rgb(129, 129, 129);
+}
+
+#user-your-saved-cars, #user-your-garage {
+  text-decoration: none;
+  font-size: 1.1em;
+  color: rgb(148, 148, 148);
+}
+
+#user-your-saved-cars:hover, #user-your-garage:hover {
+  text-decoration: underline
+}

@@ -1,0 +1,20 @@
+#logout-button {
+  text-decoration: none;
+  color: #450e678d;
+  border: solid #450e67 2px;
+  border-radius: 5px;
+  width: 280px;
+  height: 40px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logout-button:hover {
+  color: rgb(215, 215, 215);
+  background-color: #250838;
+  border: solid #250838 2px;
+}

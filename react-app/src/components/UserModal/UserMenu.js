@@ -3,18 +3,20 @@ import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
 import './UserMenu.css';
 
-function UserMenu({ setShowUserModal }) {
+function UserMenu({ setShowUserModal, sessionUser }) {
 
   function closeModal() {
     setShowUserModal(false)
   }
 
+  console.log(sessionUser)
+
 
   return (
     <div id="usermenu-overall-container">
-      <div id="user-text">User</div>
-      <div id="user-your-saved-cars" onClick={closeModal}>SavedCars</div>
-      <div id="user-your-garage" onClick={closeModal}>Garage</div>
+      <div id="user-text">Hi, {sessionUser.firstName} {sessionUser.lastName}</div>
+      <NavLink id="user-your-saved-cars" to='/cars/your-saved-cars' onClick={closeModal}><i class="fa-regular fa-heart"></i> SavedCars ({sessionUser.userSavedCars.length})</NavLink>
+      <NavLink id="user-your-garage" to='/cars/your-garage' onClick={closeModal}><i class="fa-solid fa-tag"></i> Garage ({sessionUser.garageCars.length})</NavLink>
       <div id="user-logout-button"  onClick={closeModal}>
         <LogoutButton />
       </div>

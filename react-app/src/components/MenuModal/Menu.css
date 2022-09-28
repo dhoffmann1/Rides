@@ -1,0 +1,56 @@
+#menu-overall-container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: flex-start;
+  align-items: flex-start; */
+  justify-content: space-between;
+  width: 85%;
+  height: 85%;
+}
+
+#menu-menu-text {
+  font-size: 1.4em;
+  color: rgb(129, 129, 129);
+}
+
+#menu-sign-in-button {
+  text-decoration: none;
+  color: #450e678d;
+  border: solid #450e67 2px;
+  border-radius: 5px;
+  width: 280px;
+  height: 40px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#menu-sign-in-button:hover {
+  color: rgb(215, 215, 215);
+  background-color: #250838;
+  border: solid #250838 2px;
+}
+
+#menu-create-an-account-button {
+  text-decoration: none;
+  color: rgb(215, 215, 215);
+  background-color: #450e67;
+  border: solid #450e67 2px;
+  border-radius: 5px;
+  width: 280px;
+  height: 40px;
+  font-weight: bold;
+  /* margin-bottom: 30px; */
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#menu-create-an-account-button:hover {
+  background-color: #250838;
+  border: solid #250838 2px;
+}
