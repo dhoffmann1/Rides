@@ -1,3 +1,4 @@
+from pyexpat import model
 from flask import Blueprint, session, request, redirect
 from flask_login import login_required, current_user
 from app.models import User, db, Car, Review
@@ -16,7 +17,35 @@ def get_all_cars():
 #GET car by filtered results
 @car_routes.route('/results')
 def get_filtered_results():
-  pass
+  args = request.args.to_dict()
+  print('\n')
+  print('\n')
+  print(args)
+  print('\n')
+  print('\n')
+
+  # new = args.get("new", type=int)
+  # make = args.get("make", type=str)
+  # model = args.get("model", type=str)
+  # max_price = args.get("max_price", type=int)
+  print(*args)
+  print(*args.values())
+  # print(new)
+  # print(make)
+  # print(model)
+  # print(max_price)
+
+  # filters = {}
+
+
+  # cars = Car.query.filter(
+  #   Car.new == new,
+  #   Car.make == make,
+  #   Car.model == model,
+  #   Car.price <= max_price).all()
+  return ''
+
+  # return { "cars": [car.to_dict() for car in cars] }
 
 #GET Car Details by Car ID
 @car_routes.route('/<int:car_id>')
