@@ -206,7 +206,9 @@ def seed_cars():
     db.session.add(new_car)
 
   db.session.commit()
+  print('\n')
   print('Cars were successfully seeded')
+  print('\n')
 
 def undo_cars():
     db.session.execute('TRUNCATE cars RESTART IDENTITY CASCADE;')

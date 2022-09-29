@@ -4,22 +4,10 @@ header {
   position: sticky;
   top: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  /* border-bottom: solid #450e67 6px; */
-  /* background-color: white; */
-  padding-bottom: 5px;
-  background:
-    linear-gradient(
-    to left,
-    rgb(62, 7, 92) 0%,
-    rgb(86, 18, 129) 12%,
-    rgb(193, 93, 255) 47%,
-    rgb(5, 203, 203) 100%
-  )
-  left
-  bottom
-  no-repeat;
-  background-size:100% 5px;
+  /* padding-bottom: 5px; */
+  background-color: #1f1f1f;
 }
 
 header > nav {
@@ -32,6 +20,21 @@ header > nav {
   justify-content: space-between;
   max-width: 1120px;
   width: 80%;
+}
+
+#navbar-color-bar {
+  background:
+  linear-gradient(
+  to left,
+  rgb(62, 7, 92) 0%,
+  rgb(86, 18, 129) 12%,
+  rgb(193, 93, 255) 47%,
+  rgb(5, 203, 203) 100%
+  )
+  left
+  bottom
+  no-repeat;
+  height: 5px;
 }
 
 #logo-image {

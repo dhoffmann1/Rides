@@ -44,6 +44,7 @@ const NavBar = () => {
         {showMenuModal && <MenuModal setShowMenuModal={setShowMenuModal} />}
         {showUserModal && <UserModal setShowUserModal={setShowUserModal} sessionUser={sessionUser} />}
       </nav>
+      <div id='navbar-color-bar'></div>
     </header>
   );
 }
