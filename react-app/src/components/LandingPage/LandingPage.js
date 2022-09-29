@@ -20,7 +20,6 @@ const LandingPage = () => {
             </div>
           </div>
           <div id="welcome-back-container">Welcome Back!</div>
-          <div id="landingpage-footer-container">Footer</div>
         </div>
       </div>
     </div>
