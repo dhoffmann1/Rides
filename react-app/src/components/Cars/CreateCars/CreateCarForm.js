@@ -42,15 +42,16 @@ const CreateCarForm = () => {
 
     let errorsArray = []
 
-    if (year < 1950 || year > 2024) errorsArray.push('Year must be between 1950 and 2024');
+    if (year < 1950 || year > 2024) errorsArray.push('Year must be between 1950 and 2024.');
     if (miles > 20 && _new === 'New') errorsArray.push('A car with more than 20 miles is no longer considered "New".');
     if (miles <= 20 && _new === 'Used') errorsArray.push('A car with less than 20 miles is typically considered "New". Are you sure this car is "Used"?');
-    if (miles < 0) errorsArray.push('Milage cannot be negative');
-    if (price < 500 || price > 250000) errorsArray.push('Price must be between $500 and $250,000');
-    if (mpg < 0) errorsArray.push('MPG cannot be negative');
+    if (miles < 1) errorsArray.push('Milage has to be 1 or greater.');
+    if (price < 500 || price > 250000) errorsArray.push('Price must be between $500 and $250,000.');
+    if (mpg < 1) errorsArray.push('MPG has to be 1 or greater.');
     // if (fuelType === 'Electric' && mpg > 0) errorsArray.push('MPG must be 0 for Electric vehicles');
 
     if (errorsArray.length > 0) {
+      alert('Could not create car.  Please see error messages above.')
       setErrors(errorsArray);
       return
     }
@@ -68,7 +69,7 @@ const CreateCarForm = () => {
       ex_color: exColor,
       in_color: inColor,
       drivetrain,
-      mpg: mpg > 0 ? +mpg : 1,
+      mpg: +mpg,
       fuel_type: fuelType,
       transmission,
       engine
