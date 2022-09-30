@@ -10,6 +10,8 @@ import User from './components/User';
 import LandingPage from './components/LandingPage/LandingPage';
 import { authenticate } from './store/session';
 import CreateCarForm from './components/Cars/CreateCars/CreateCarForm';
+import CreateCarImages from './components/Cars/CreateCarImages/CreateCarImages';
+import YourGarage from './components/Cars/YourGarage/YourGarage';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -45,6 +47,12 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/cars/new' exact={true} >
           <CreateCarForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/cars/your-garage' exact={true} >
+          <YourGarage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/cars/:carId/images' exact={true} >
+          <CreateCarImages />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />

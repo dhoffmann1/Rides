@@ -108,3 +108,39 @@ input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px rgb(27, 27, 27) inset !important;
     -webkit-text-fill-color: rgb(215, 215, 215) !important;
 }
+
+#create-car-demo-info {
+  margin-bottom: 40px;
+}
+
+
+.create-car-fields-class-select {
+  background-color: rgb(27, 27, 27);
+  width: 418px;
+  height: 60px;
+  border: solid 2px rgb(181, 181, 181);
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: rgb(215, 215, 215);
+  padding-left: 12px;
+  padding-top: 5px;
+  padding-bottom: -10px;
+  /* padding-right: 5px; */
+}
+
+.floating-label-select {
+  position: relative;
+  pointer-events: none;
+  right: 404px;
+  /* transition: 0.5s ease all; */
+  color: rgb(215, 215, 215);
+  bottom: 20px;
+  font-size: 10px;
+  opacity: .8;
+}
+
+select:focus {
+  border: solid 2px rgb(86, 215, 250);
+  outline: none;
+}

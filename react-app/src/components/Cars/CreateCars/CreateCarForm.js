@@ -75,13 +75,13 @@ const CreateCarForm = () => {
       engine
     }
 
-    const data = await dispatch(createCarThunk(newCar));
-    if (data) {
-      setErrors(data);
-    } else {
-      alert('Car succesfully added to your garage!')
-      history.push('/cars/your-garage');
-    }
+    let newCarId = await dispatch(createCarThunk(newCar))
+      .then(car => {
+        return car.id
+      })
+
+    alert('Car succesfully added to your garage!')
+    history.push(`/cars/${newCarId}/images`);
   };
 
   return (
@@ -111,9 +111,10 @@ const CreateCarForm = () => {
               <span className="floating-label">Year</span>
             </div>
             <div>
+              {/* <label>Make: </label> */}
               <select
                 id='create-car-make-selectfield'
-                className='create-car-fields-class'
+                className='create-car-fields-class-select'
                 name='make'
                 required
                 onChange={(e) => setMake(e.target.value)}
@@ -124,7 +125,7 @@ const CreateCarForm = () => {
                   )
                 })}
               </select>
-              {/* <span className="floating-label">Make</span> */}
+              <span className="floating-label-select">Make</span>
             </div>
             <div>
               <input
@@ -177,7 +178,7 @@ const CreateCarForm = () => {
             <div>
             <select
                 id='create-car-condition-selectfield'
-                className='create-car-fields-class'
+                className='create-car-fields-class-select'
                 name='condition'
                 required
                 onChange={(e) => setCondition(e.target.value)}
@@ -188,12 +189,12 @@ const CreateCarForm = () => {
                   )
                 })}
               </select>
-              {/* <span className="floating-label">Condition</span> */}
+              <span className="floating-label-select">Condition</span>
             </div>
             <div>
               <select
                 id='create-car-new-selectfield'
-                className='create-car-fields-class'
+                className='create-car-fields-class-select'
                 name='new'
                 required
                 onChange={(e) => setNew(e.target.value)}
@@ -204,12 +205,12 @@ const CreateCarForm = () => {
                   )
                 })}
               </select>
-              {/* <span className="floating-label">New</span> */}
+              <span className="floating-label-select">New or Used?</span>
             </div>
             <div>
             <select
                 id='create-car-exColor-selectfield'
-                className='create-car-fields-class'
+                className='create-car-fields-class-select'
                 name='exColor'
                 required
                 onChange={(e) => setExColor(e.target.value)}
@@ -220,12 +221,12 @@ const CreateCarForm = () => {
                   )
                 })}
               </select>
-              {/* <span className="floating-label">Exterior Color</span> */}
+              <span className="floating-label-select">Exterior Color</span>
             </div>
             <div>
             <select
                 id='create-car-inColor-selectfield'
-                className='create-car-fields-class'
+                className='create-car-fields-class-select'
                 name='inColor'
                 required
                 onChange={(e) => setInColor(e.target.value)}
@@ -236,12 +237,12 @@ const CreateCarForm = () => {
                   )
                 })}
               </select>
-              {/* <span className="floating-label">Interior Color</span> */}
+              <span className="floating-label-select">Interior Color</span>
             </div>
             <div>
             <select
                 id='create-car-drivetrain-selectfield'
-                className='create-car-fields-class'
+                className='create-car-fields-class-select'
                 name='drivetrain'
                 required
                 onChange={(e) => setDrivetrain(e.target.value)}
@@ -252,7 +253,7 @@ const CreateCarForm = () => {
                   )
                 })}
               </select>
-              {/* <span className="floating-label">Drivetrain</span> */}
+              <span className="floating-label-select">Drivetrain</span>
             </div>
             <div>
               <input
@@ -269,7 +270,7 @@ const CreateCarForm = () => {
             <div>
             <select
                 id='create-car-fuelType-selectfield'
-                className='create-car-fields-class'
+                className='create-car-fields-class-select'
                 name='fuelType'
                 required
                 onChange={(e) => setFuelType(e.target.value)}
@@ -280,12 +281,12 @@ const CreateCarForm = () => {
                   )
                 })}
               </select>
-              {/* <span className="floating-label">Fuel Type</span> */}
+              <span className="floating-label-select">Fuel Type</span>
             </div>
             <div>
             <select
                 id='create-car-transmission-selectfield'
-                className='create-car-fields-class'
+                className='create-car-fields-class-select'
                 name='transmission'
                 required
                 onChange={(e) => setTransmission(e.target.value)}
@@ -296,7 +297,7 @@ const CreateCarForm = () => {
                   )
                 })}
               </select>
-              {/* <span className="floating-label">Transmission</span> */}
+              <span className="floating-label-select">Transmission</span>
             </div>
             <div>
               <input
@@ -311,7 +312,7 @@ const CreateCarForm = () => {
               <span className="floating-label">Engine</span>
             </div>
             <button className='create-car-sign-in-submit-button' type='submit'>Submit New Car</button>
-            <button className='create-car-sign-in-submit-button' type='submit' onClick={(e) => {
+            <button id='create-car-demo-info' className='create-car-sign-in-submit-button' type='submit' onClick={(e) => {
               setYear(2019)
               // setMake('Acura')
               setModel('MDX')

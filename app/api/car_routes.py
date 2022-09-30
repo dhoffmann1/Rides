@@ -2,8 +2,8 @@ from hashlib import new
 from pyexpat import model
 from flask import Blueprint, session, request, redirect
 from flask_login import login_required, current_user
-from app.models import User, db, Car, Review
-from app.forms import LoginForm, SignUpForm, CarForm
+from app.models import User, db, Car, Review, Image
+from app.forms import LoginForm, SignUpForm, CarForm, ImageForm
 from .auth_routes import validation_errors_to_error_messages
 
 
@@ -133,12 +133,6 @@ def delete_car(car_id):
   return { "message": "Successfully deleted car" }, 200
 
 
-#GET Car reviews by car ID
-
-
-
-
-#GET Cars Extra Features by car ID
 
 #POST/Add extra features to a car by car ID
 
@@ -146,4 +140,22 @@ def delete_car(car_id):
 
 #DELETE saved-car from user's list by car ID
 
-#GET cars images by car ID
+#POST/Add an Image to a Car
+@car_routes.route('/<int:car_id>/images', methods=['POST'])
+@login_required
+def create_image(car_id):
+  form = ImageForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+
+  if form.validate_on_submit():
+    try:
+      new_image = Image(
+        car_id = int(car_id),
+        image_url = form.data['image_url']
+      )
+    except:
+      return { "error": "Could not create new image" }, 404
+    db.session.add(new_image)
+    db.session.commit()
+    return new_image.to_dict(), 201
+  return { "errors": validation_errors_to_error_messages(form.errors) }, 400

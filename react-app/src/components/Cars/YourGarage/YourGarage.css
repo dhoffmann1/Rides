@@ -1,0 +1,136 @@
+#your-garage-overall-container {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  width: 100%
+}
+
+#your-garage-second-container {
+  max-width: 1120px;
+  width: 80%;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+#your-garage-title {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 80px;
+  font-size: 2.6em;
+  width: 320px;
+}
+
+#your-garage-grid {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-template-columns: 70% 30%;
+  column-gap: 15px;
+}
+
+#your-garage-left-side-grid {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto;
+  gap: 15px;
+}
+
+#your-garage-car-container {
+  width: 100%;
+  min-width: 210px;
+  background-color: rgb(41, 41, 41);
+  border: solid 1px #444444;
+  color: rgb(215, 215, 215);
+  min-height: 300px
+}
+
+#your-garage-car-image-container {
+  display: flex;
+  min-height: 240px;
+  background-color: black;
+
+}
+
+#your-garage-car-image {
+  display: block;
+  width: 100%;
+}
+
+#your-garage-car-details-wrapper {
+  padding: 10px;
+  padding-bottom: 30px;
+}
+
+#your-garage-conditions-make-model-container {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+#your-garage-new-label {
+  font-size: 0.75em;
+  color: rgb(215, 215, 215, 0.5);
+}
+
+#your-garage-make-model {
+  font-size: 0.95em;
+  color: rgb(215, 215, 215, 0.8);
+}
+
+#your-garage-milage {
+  font-size: 0.85em;
+  color: rgb(215, 215, 215, 0.8);
+  margin-bottom: 10px;
+}
+
+#your-garage-price {
+  font-size: 1.4em;
+  margin-bottom: 8px;
+}
+
+#your-garage-edit-button-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+#your-garage-edit-listing-button {
+  text-decoration: none;
+  color: rgb(215, 215, 215);
+  background-color: #450e67;
+  border: solid #450e67 2px;
+  border-radius: 5px;
+  width: 80%;
+  height: 32px;
+  font-weight: bold;
+  /* margin-bottom: 30px; */
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#your-garage-edit-listing-button:hover {
+  background-color: #250838;
+  border: solid #250838 2px;
+}
+
+/**********Media Queries**********/
+
+@media screen and (max-width: 1120px) {
+  #welcome-back-cars-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    /* grid-template-areas:
+      "main main main main"
+      "main main main main"
+      "main main main main"; */
+    row-gap: 20px;
+  }
+}
+
+@media screen and (max-width: 860px) {
+  #welcome-back-cars-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    row-gap: 20px;
+  }
+}

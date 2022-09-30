@@ -1,8 +1,8 @@
 const GET_ALL_CARS = 'cars/getAllCars'
-// const GET_FOUR_CARS = 'cars/getFourCars'
 // const GET_FILTERED_CARS = 'cars/getFilteredCars'
 // const GET_SAVED_CARS = 'cars/getSavedCars'
 // const GET_YOUR_GARAGE = 'cars/getYourGarage'
+// const GET_CAR_BY_ID = 'cars/getCarById'
 const CREATE_CAR = 'cars/createCar'
 const UPDATE_CAR = 'cars/updateCar'
 const DELETE_CAR = 'cars/deleteCar'
@@ -18,12 +18,14 @@ const getAllCarsAction = (payload) => {
   }
 }
 
-// const getFourCarsAction = (payload) => {
-//     return {
-//         type: GET_FOUR_CARS,
-//         payload
-//     }
+// const getCarByIdAction = (payload) => {
+//   return {
+//     type: GET_CAR_BY_ID,
+//     payload
+//   }
 // }
+
+
 
 // const getFilteredAction = (payload) => {
 //     return {
@@ -80,6 +82,15 @@ export const getAllCarsThunk = () => async dispatch => {
   }
 }
 
+// export const getCarByIdThunk = (carId) => async dispatch => {
+//   const response = await fetch(`/api/cars/${carId}`)
+//   if(response.ok){
+//     let car = await response.json()
+//     dispatch(getCarByIdAction(car))
+//     return car
+//   }
+// }
+
 // export const getSavedCarsThunk = () => async dispatch => {
 //     // @post_routes.route('', methods=["GET"])
 //     const response = await fetch('/api/posts/', {
@@ -125,6 +136,7 @@ export const createCarThunk = (payload) => async dispatch => {
   if (response.ok){
     const car = await response.json()
     dispatch(createCarAction(car))
+    return car
   }
 }
 
@@ -138,6 +150,7 @@ export const updateCarThunk = (id, payload) => async dispatch => {
   if (response.ok){
     const car = await response.json()
     dispatch(updateCarAction(car))
+    return car
   }
 }
 
@@ -172,6 +185,9 @@ const carsReducer = (state = initialState, action) => {
       action.payload.cars.forEach(car => newState[car.id] = car)
       return newState
     }
+    // case GET_CAR_BY_ID: {z
+    //   return action.payload
+    // }
     // case GET_POSTS: {
     //   newState = {}
     //   action.payload.posts.forEach(post => newState[post.id] = post)
