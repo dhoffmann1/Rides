@@ -170,7 +170,7 @@
   padding-bottom: -10px;
 }
 
-.floating-label {
+.floating-label-images {
   position: relative;
   pointer-events: none;
   right: 300px;
@@ -183,8 +183,8 @@
   outline: none;
 }
 
-input:focus ~ .floating-label,
-input:not(:focus):valid ~ .floating-label {
+input:focus ~ .floating-label-images,
+input:not(:focus):valid ~ .floating-label-images {
   bottom: 20px;
   font-size: 10px;
   opacity: .8;

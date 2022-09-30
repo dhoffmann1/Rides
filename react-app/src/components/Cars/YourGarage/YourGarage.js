@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
-import { getAllCarsThunk } from "../../../store/cars";
-import { getUserThunk } from "../../../store/user";
-// import Search from "../Search/Search.js";
+import { getUserThunk } from "../../../store/session";
 import "./YourGarage.css";
 
 const YourGarage = () => {

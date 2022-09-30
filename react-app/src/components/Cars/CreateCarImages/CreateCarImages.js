@@ -120,7 +120,7 @@ const CreateCarImages = () => {
                 required
                 onChange={(e) => setImageUrl(e.target.value)}
               />
-              <span className="floating-label">New Image URL</span>
+              <span className="floating-label-images">New Image URL</span>
             </div>
             <div id='create-image-buttons-container'>
               <button className='create-image-sign-in-submit-button' type='submit'>Submit Image</button>
