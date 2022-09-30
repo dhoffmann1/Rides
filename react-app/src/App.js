@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import User from './components/User';
 import LandingPage from './components/LandingPage/LandingPage';
 import { authenticate } from './store/session';
+import CreateCarForm from './components/Cars/CreateCars/CreateCarForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -41,6 +42,9 @@ function App() {
         </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
+        </ProtectedRoute>
+        <ProtectedRoute path='/cars/new' exact={true} >
+          <CreateCarForm />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <User />

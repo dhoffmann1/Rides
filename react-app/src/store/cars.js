@@ -116,6 +116,7 @@ export const getAllCarsThunk = () => async dispatch => {
 // }
 // IMPORTANT: make sure the object you send from from is snake cased in keys
 export const createCarThunk = (payload) => async dispatch => {
+  console.log(payload)
   const response = await fetch('/api/cars', {
     method: "POST",
     headers: { "Content-Type": "application/json" },

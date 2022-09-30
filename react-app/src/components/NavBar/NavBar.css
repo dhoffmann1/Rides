@@ -8,6 +8,7 @@ header {
   justify-content: center;
   /* padding-bottom: 5px; */
   background-color: #1f1f1f;
+  z-index: 1;
 }
 
 header > nav {

@@ -1,0 +1,110 @@
+#create-car-page-overall-container {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  width: 100%
+}
+
+#create-car-page-second-container {
+  max-width: 1120px;
+  width: 80%;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+#create-car-page-grid {
+  justify-content: flex-start;
+}
+
+#create-car-welcome-text {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+#create-car-welcome-big-text {
+  font-size: 1.8em;
+  font-weight: bolder;
+  margin-bottom: 15px;
+}
+
+#create-car-welcome-small-text {
+  font-size: 0.8em;
+}
+
+#create-car-welcome-create-account-navlink {
+  text-decoration: none;
+  color: rgb(251, 160, 238);
+}
+
+
+#create-car-errors {
+  color: rgb(250, 114, 114);
+  margin-bottom: 15px;
+}
+
+.create-car-fields-class {
+  background-color: rgb(27, 27, 27);
+  width: 400px;
+  height: 50px;
+  border: solid 2px rgb(181, 181, 181);
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: rgb(215, 215, 215);
+  padding-left: 12px;
+  padding-top: 5px;
+  padding-bottom: -10px;
+  /* padding-right: 5px; */
+}
+
+.floating-label {
+  position: relative;
+  pointer-events: none;
+  right: 404px;
+  transition: 0.5s ease all;
+  color: rgb(215, 215, 215);
+}
+
+.create-car-fields-class:focus {
+  border: solid 2px rgb(86, 215, 250);
+  outline: none;
+}
+
+input:focus ~ .floating-label,
+input:not(:focus):valid ~ .floating-label {
+  bottom: 20px;
+  font-size: 10px;
+  opacity: .8;
+}
+
+.create-car-sign-in-submit-button {
+  text-decoration: none;
+  color: rgb(215, 215, 215);
+  background-color: #450e67;
+  border: solid #450e67 2px;
+  border-radius: 5px;
+  width: 280px;
+  height: 40px;
+  font-weight: bold;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.create-car-sign-in-submit-button:hover {
+  background-color: #250838;
+  border: solid #250838 2px;
+  transition: 0.4s ease all;
+  cursor: pointer;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    box-shadow: none;
+    -webkit-box-shadow: 0 0 0 30px rgb(27, 27, 27) inset !important;
+    -webkit-text-fill-color: rgb(215, 215, 215) !important;
+}
