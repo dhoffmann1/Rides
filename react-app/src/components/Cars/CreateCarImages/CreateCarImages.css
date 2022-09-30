@@ -61,11 +61,6 @@
   width: 80%;
 }
 
-
-#small-images-container {
-
-}
-
 #small-images-grid {
   display: grid;
   grid-template-rows: auto;
