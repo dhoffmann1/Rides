@@ -1,6 +1,6 @@
 #landingpage-overall-container {
   display: flex;
-  margin-top: 50px;
+  /* margin-top: 50px; */
   justify-content: center;
   width: 100%
 }
@@ -20,7 +20,12 @@
 #the-easiest-way-to-sell-your-car-container {
   display: flex;
   justify-content: flex-start;
-  margin-bottom: 150px;
+  padding-left: 40px;
+  padding-top: 50px;
+  height: 350px;
+  background: no-repeat url('./bannerImage.jpg');
+  background-size: 100% 100%;
+  width: calc(100%-40px)
 }
 
 #the-easiest-smaller-container {
@@ -184,6 +189,10 @@
       "main main main main"; */
     row-gap: 20px;
   }
+
+  #the-easiest-way-to-sell-your-car-container {
+    height: 320px;
+  }
 }
 
 @media screen and (max-width: 860px) {
@@ -191,5 +200,9 @@
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: auto;
     row-gap: 20px;
+  }
+
+  #the-easiest-way-to-sell-your-car-container {
+    height: 300px;
   }
 }

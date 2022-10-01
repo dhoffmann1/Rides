@@ -5,14 +5,14 @@ import './Search.css'
 
 const Search = () => {
   const [_new, setNew] = useState('New & used cars');
-  const [make, setMake] = useState('Acura');
+  const [make, setMake] = useState('All makes');
   const [price, setPrice] = useState('No max price');
 
 
   // const user = useSelector(state => state.session.user);
 
   const newOptions = ['New & used cars', 'New cars', 'Used cars'];
-  const makeOptions = ['Acura', 'Audi', 'BMW', 'Buick', 'Cadillac', 'Chevrolet', 'Chrysler', 'Dodge', 'Ford', 'GMC', 'Honda', 'Hyundai', 'INFINITI', 'Jaguar', 'Jeep', 'Kia', 'Land Rover', 'Lexus', 'Lincoln', 'Mazda', 'Nissan', 'Tesla', 'Toyota'];
+  const makeOptions = ['All makes', 'Acura', 'Audi', 'BMW', 'Buick', 'Cadillac', 'Chevrolet', 'Chrysler', 'Dodge', 'Ford', 'GMC', 'Honda', 'Hyundai', 'INFINITI', 'Jaguar', 'Jeep', 'Kia', 'Land Rover', 'Lexus', 'Lincoln', 'Mazda', 'Nissan', 'Tesla', 'Toyota'];
   const priceOptions = ['No max price', '$6,000', '$10,000', '$25,000', '$50,000', '$75,000', '$100,000', '$250,000']
 
   // const dispatch = useDispatch();
@@ -22,11 +22,11 @@ const Search = () => {
     e.preventDefault();
 
     let newSearch = _new === 'New & used cars' ? 'new+used' : _new === 'New cars' ? 'new+cars' : 'used+cars';
-    let makeSearch = make;
+    let makeSearch = make === 'All makes' ? 'all+makes' : make;
     let priceSearch = price === 'No max price' ? 'no+max+price' : price;
 
     let newState = _new === 'New & used cars' ? 'both' : _new === 'New cars';
-    let makeState = makeSearch;
+    let makeState = make === 'All makes' ? 'all' : make;
     let priceState = price === 'No max price' ? 0 : Number(price.replace(/[^0-9.-]+/g,""))
 
     // console.log('newState from Search', newState)
