@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllCarsThunk } from "../../store/cars";
 import { NavLink } from "react-router-dom";
-// import Search from "../Search/Search.js";
+import Search from "../Search/Search.js";
 import "./LandingPage.css";
 
 const LandingPage = () => {
@@ -14,7 +14,7 @@ const LandingPage = () => {
     dispatch(getAllCarsThunk())
   }, [dispatch])
 
-  console.log(welcomeCars)
+  // console.log(welcomeCars)
 
   return (
     <div id="landingpage-overall-container">
@@ -28,8 +28,8 @@ const LandingPage = () => {
               <div id="landingpage-filter-search-make-bar">
                 <div id="landingpage-make-word">Make</div>
               </div>
-              <div id="landingpage-search-engine">Search engine</div>
-              {/* <Search /> */}
+              {/* <div id="landingpage-search-engine">Search engine</div> */}
+              <Search />
             </div>
           </div>
           <div id="welcome-back-container">

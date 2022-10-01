@@ -21,7 +21,8 @@ const YourGarage = () => {
     const timer = setTimeout(() => {
       dispatch(getUserThunk(sessionUser.id));
     }, 100)
-  }, [dispatch, forceRender])
+    return () => clearTimeout(timer);
+  }, [dispatch, sessionUser.id, forceRender])
 
   if (!sessionUser) return <>Session User Not Loaded</>
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useHistory, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { getAllCarsThunk } from '../../../store/cars';
 import { createImageThunk, deleteImageThunk } from '../../../store/images';
 
@@ -21,7 +21,7 @@ const CreateCarImages = () => {
   const [forceRender, setForceRender] = useState(false);
 
   const dispatch = useDispatch();
-  const history = useHistory();
+  // const history = useHistory();
 
   useEffect(() => {
     dispatch(getAllCarsThunk())

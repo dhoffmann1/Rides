@@ -26,12 +26,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 #menu-sign-in-button:hover {
   color: rgb(215, 215, 215);
   background-color: #250838;
   border: solid #250838 2px;
+  transition: 0.4s ease all;
 }
 
 #menu-create-an-account-button {
@@ -48,9 +50,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 #menu-create-an-account-button:hover {
   background-color: #250838;
   border: solid #250838 2px;
+  transition: 0.4s ease all;
 }
