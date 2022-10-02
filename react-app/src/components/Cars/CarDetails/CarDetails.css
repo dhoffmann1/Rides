@@ -1,0 +1,164 @@
+#car-details-page-overall-container {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+#car-details-page-second-container {
+  max-width: 1120px;
+  width: 80%;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+#car-details-page-grid {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-template-columns: 65% 35%;
+  column-gap: 35px;
+}
+
+#car-details-page-left-side-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+}
+
+#car-details-page-images-container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+#car-details-page-preview-image-container {
+  display: flex;
+  width: 100%;
+  background-color: rgb(41, 41, 41);
+  height: 500px;
+  align-items: center;
+  justify-content: center;
+}
+
+#car-details-page-preview-image-wrapper {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+#car-details-page-preview-image {
+  display: block;
+  object-fit: contain;
+  max-width: 100%;
+}
+
+#car-details-page-images-scroller-container {
+  display: flex;
+  overflow-x: scroll;
+  margin-bottom: 20px;
+}
+
+#car-details-page-small-images-wrapper {
+  border: 1px solid purple;
+  min-width: 120px;
+}
+
+#car-details-page-small-images {
+  display: block;
+  object-fit: contain;
+  max-width: 100%;
+}
+
+#car-details-page-details-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+#car-details-page-used-save-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+#car-details-page-used-info {
+  font-size: 0.9em;
+}
+
+/* #car-details-page-saved-component {
+  font-size: 0.9em;
+} */
+
+#car-details-page-year-make-model-trim {
+  font-size: 1.4em;
+  margin-top: 6px;
+}
+
+#car-details-page-milage {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+#car-details-page-price {
+  font-size: 2.6em;
+  /* font-weight: bolder; */
+  margin-top: 14px;
+}
+
+#car-details-page-great-deal {
+  width: fit-content;
+  background-color: rgba(31, 255, 34, 0.3);
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 0.75em;
+  margin-top: 15px;
+}
+
+#car-details-page-good-deal {
+  width: fit-content;
+  background-color: rgba(223, 248, 30, 0.3);
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 0.75em;
+  margin-top: 15px;
+}
+
+#car-details-page-fair-deal {
+  width: fit-content;
+  background-color: rgba(222, 169, 53, 0.3);
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 0.75em;
+  margin-top: 15px;
+}
+
+#car-details-page-basics-container {
+  margin-top: 60px;
+  width: 100%;
+}
+
+#car-details-page-basics-title {
+  font-size: 2.4em;
+  margin-bottom: 20px;
+}
+
+.car-details-page-basics-grids {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
+  border-bottom: 1px solid white;
+  padding: 10px 0px;
+}
+
+.car-details-page-basics-titles-class {
+  font-weight: bolder;
+}
+
+#car-details-page-reviews-container {
+  margin-top: 60px;
+}

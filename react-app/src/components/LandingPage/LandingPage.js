@@ -39,7 +39,7 @@ const LandingPage = () => {
               <div id="welcome-back-cars-grid">
                 {welcomeCars.map(car => {
                   return (
-                    <NavLink id="wb-navlink-wrapper" to={`/cars/${car.id}`} key={car.id}>
+                    <NavLink id="wb-navlink-wrapper" to={`/cars/${car.id}/details`} key={car.id}>
                       <div id="welcome-back-single-car-main-container">
                         <div id="welcome-back-car-image-container">
                           <img id="wb-car-image" src={car?.images[0]?.imageUrl} alt="car"  />

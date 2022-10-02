@@ -13,6 +13,7 @@ import CreateCarForm from './components/Cars/CreateCars/CreateCarForm';
 import CreateCarImages from './components/Cars/CreateCarImages/CreateCarImages';
 import YourGarage from './components/Cars/YourGarage/YourGarage';
 import UpdateCarForm from './components/Cars/UpdateCars/UpdateCarForm';
+import CarDetails from './components/Cars/CarDetails/CarDetails';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -51,6 +52,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/cars/your-garage' exact={true} >
           <YourGarage />
+        </ProtectedRoute>
+        <ProtectedRoute path='/cars/:carId/details' exact={true} >
+          <CarDetails />
         </ProtectedRoute>
         <ProtectedRoute path='/cars/:carId/images' exact={true} >
           <CreateCarImages />

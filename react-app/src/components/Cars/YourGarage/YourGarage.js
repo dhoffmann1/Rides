@@ -14,8 +14,8 @@ const YourGarage = () => {
   const [forceRender, setForceRender] = useState(false);
 
 
-  console.log('sessionUser in YourGarage Component', sessionUser)
-  console.log('sessionUser.garageCars', sessionUser.garageCars)
+  // console.log('sessionUser in YourGarage Component', sessionUser)
+  // console.log('sessionUser.garageCars', sessionUser.garageCars)
 
   useEffect(() => {
     const timer = setTimeout(() => {
