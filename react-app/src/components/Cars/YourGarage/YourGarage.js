@@ -71,6 +71,9 @@ const YourGarage = () => {
                       <div id="your-garage-edit-button-container">
                         <NavLink id="your-garage-edit-listing-button" to={`/cars/${car.id}/edit`}>Edit Listing</NavLink>
                       </div>
+                      <div id="your-garage-view-details-button-container">
+                        <NavLink id="your-garage-view-details-listing-button" to={`/cars/${car.id}/details`}>View Car Details</NavLink>
+                      </div>
                     </div>
                   </div>
                 </div>

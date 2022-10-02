@@ -181,7 +181,7 @@ const carsReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
     case GET_ALL_CARS: {
-      newState={}
+      newState = {}
       action.payload.cars.forEach(car => newState[car.id] = car)
       return newState
     }
@@ -209,7 +209,7 @@ const carsReducer = (state = initialState, action) => {
       return newState
     }
     case UPDATE_CAR: {
-      const newState = { ...state }
+      newState = { ...state }
       newState[action.payload.id] = action.payload
       return newState
     }

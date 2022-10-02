@@ -16,31 +16,31 @@ def get_all_cars():
   return { "cars": [car.to_dict() for car in cars] }
 
 #GET car by filtered results
-@car_routes.route('/results')
-def get_filtered_results():
-  args = request.args
-  print('\n')
-  print('\n')
-  print(args)
-  print('\n')
-  print('\n')
+# @car_routes.route('/results')
+# def get_filtered_results():
+#   args = request.args
+#   print('\n')
+#   print('\n')
+#   print(args)
+#   print('\n')
+#   print('\n')
 
-  new = args.get("new", type=int)
-  make = args.get("make", type=str)
-  model = args.get("model", type=str)
-  max_price = args.get("max_price", type=int)
+  # new = args.get("new", type=int)
+  # make = args.get("make", type=str)
+  # model = args.get("model", type=str)
+  # max_price = args.get("max_price", type=int)
   # print(*args)
   # print(*args.values())
-  print(new)
-  print(make)
-  print(model)
-  print(max_price)
+  # print(new)
+  # print(make)
+  # print(model)
+  # print(max_price)
 
-  filters = {}
-  if new != None: filters['new'] = new
-  if make != None: filters['make'] = make
-  if model != None: filters['model'] = model
-  if max_price != None: filters['price'] = new
+  # filters = {}
+  # if new != None: filters['new'] = new
+  # if make != None: filters['make'] = make
+  # if model != None: filters['model'] = model
+  # if max_price != None: filters['price'] = new
 
 
 
@@ -50,7 +50,7 @@ def get_filtered_results():
   #   Car.make == make,
   #   Car.model == model,
   #   Car.price <= max_price).all()
-  return ''
+  # return ''
 
   # return { "cars": [car.to_dict() for car in cars] }
 

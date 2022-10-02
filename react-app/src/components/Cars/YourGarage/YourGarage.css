@@ -37,8 +37,8 @@
 
 #your-garage-car-container {
   width: 100%;
-  min-width: 210px;
-  max-width: 300px;
+  min-width: 280px;
+  max-width: 320px;
   background-color: rgb(41, 41, 41);
   border: solid 1px #444444;
   color: rgb(215, 215, 215);
@@ -188,6 +188,35 @@
 #your-garage-edit-listing-button:hover {
   background-color: #250838;
   border: solid #250838 2px;
+  transition: 0.4s ease all;
+}
+
+#your-garage-view-details-button-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+#your-garage-view-details-listing-button {
+  text-decoration: none;
+  color: rgb(215, 215, 215);
+  background-color: #450e67;
+  border: solid #450e67 2px;
+  border-radius: 5px;
+  width: 80%;
+  height: 32px;
+  font-weight: bold;
+  /* margin-bottom: 30px; */
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#your-garage-view-details-listing-button:hover {
+  background-color: #250838;
+  border: solid #250838 2px;
+  transition: 0.4s ease all;
 }
 
 #your-garage-right-side-container {
@@ -229,6 +258,7 @@
 #your-garage-add-car-button:hover {
   background-color: #250838;
   border: solid #250838 2px;
+  transition: 0.4s ease all;
 }
 
 /**********Media Queries**********/

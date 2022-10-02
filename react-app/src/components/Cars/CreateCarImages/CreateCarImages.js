@@ -70,7 +70,7 @@ const CreateCarImages = () => {
         <div id='create-image-page-grid'>
           <div id='create-image-welcome-text'>
             <div id='create-image-welcome-big-text'>{car.year} {car.make} {car.model} {car.trim} - Images</div>
-            <div id='create-image-welcome-small-text'>Please use this page to add and delete images from this vehicle.</div>
+            <div id='create-image-welcome-small-text'>Please use this page to add and delete images from this vehicle. Click on an image to enlarge it.</div>
           </div>
           <div id='create-images-preview-container'>
             <div id='create-images-large-preview-container'>
