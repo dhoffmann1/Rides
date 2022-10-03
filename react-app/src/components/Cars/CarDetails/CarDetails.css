@@ -62,8 +62,12 @@
 }
 
 #car-details-page-small-images-wrapper {
+  display: flex;
   border: 1px solid purple;
   min-width: 120px;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(41, 41, 41);
 }
 
 #car-details-page-small-images {

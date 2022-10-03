@@ -75,8 +75,8 @@ const CreateCarImages = () => {
           <div id='create-images-preview-container'>
             <div id='create-images-large-preview-container'>
               <div id='large-preview-wrapper'>
-                {car?.images?.length === 0 && <img id='large-preview-image' src={'https://www.willow-car-sales.co.uk/wp-content/uploads/2019/11/placeholder-image-1.jpg'} alt='large-preview' />}
-                {car?.images?.length > 0 && <img id='large-preview-image' src={displayImage} alt='large-preview' />}
+                {car?.images?.length === 0 && <img id='large-preview-image' src={'https://www.willow-car-sales.co.uk/wp-content/uploads/2019/11/placeholder-image-1.jpg'} alt='large-preview' onError={e => { e.currentTarget.src = 'https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png'; }} />}
+                {car?.images?.length > 0 && <img id='large-preview-image' src={displayImage} alt='large-preview' onError={e => { e.currentTarget.src = 'https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png'; }} />}
               </div>
             </div>
             <div id='small-images-container'>
@@ -84,7 +84,7 @@ const CreateCarImages = () => {
                 {car?.images?.map((image, index) => {
                   return (
                     <div id='small-images-wrapper' key={index}>
-                      <img id='small-images' src={image.imageUrl} alt={`car ${index}`} onClick={() => setDisplayImage(image.imageUrl)} />
+                      <img id='small-images' src={image.imageUrl} alt={`car ${index}`} onClick={() => setDisplayImage(image.imageUrl)} onError={e => { e.currentTarget.src = 'https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png'; }} />
                       <span id='delete-small-images' onClick={() => {
                         setShowConfirmation(!showConfirmation)
                         setShowConfirmationId(image.id)

@@ -44,14 +44,14 @@ const CarDetails = () => {
             <div id="car-details-page-images-container">
               <div id="car-details-page-preview-image-container">
                 <div id="car-details-page-preview-image-wrapper">
-                  <img id="car-details-page-preview-image" src={detailsPreviewImage} alt="preview" />
+                  <img id="car-details-page-preview-image" src={detailsPreviewImage} alt="preview" onError={e => { e.currentTarget.src = 'https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png'; }} />
                 </div>
               </div>
               <div id="car-details-page-images-scroller-container">
                 {car.images.map((image, index) => {
                   return (
                     <div id="car-details-page-small-images-wrapper" key={index}>
-                      <img id="car-details-page-small-images" src={image.imageUrl} alt="small" onClick={() => setDetailsPreviewImage(image.imageUrl)} />
+                      <img id="car-details-page-small-images" src={image.imageUrl} alt="small" onClick={() => setDetailsPreviewImage(image.imageUrl)} onError={e => { e.currentTarget.src = 'https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png'; }} />
                     </div>
                   )
                 })}

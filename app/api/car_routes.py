@@ -3,7 +3,7 @@ from pyexpat import model
 from flask import Blueprint, session, request, redirect
 from flask_login import login_required, current_user
 from app.models import User, db, Car, Review, Image
-from app.forms import LoginForm, SignUpForm, CarForm, ImageForm
+from app.forms import LoginForm, SignUpForm, CarForm, ImageForm, ReviewForm
 from .auth_routes import validation_errors_to_error_messages
 
 
@@ -158,4 +158,26 @@ def create_image(car_id):
     db.session.add(new_image)
     db.session.commit()
     return new_image.to_dict(), 201
+  return { "errors": validation_errors_to_error_messages(form.errors) }, 400
+
+#POST/Add a Review for a Car
+@car_routes.route('/<int:car_id>/reviews', methods=['POST'])
+@login_required
+def create_review(car_id):
+  form = ReviewForm()
+  form['csrf_token'].data = request.cookies['csrf_token']
+
+  if form.validate_on_submit():
+    try:
+      new_review = Review(
+        car_id = int(car_id),
+        user_id = int(current_user.id),
+        rating = int(form.data['rating']),
+        content = form.data['content']
+      )
+    except:
+      return { "error": "Could not create new review" }, 404
+    db.session.add(new_review)
+    db.session.commit()
+    return new_review.to_dict(), 201
   return { "errors": validation_errors_to_error_messages(form.errors) }, 400
