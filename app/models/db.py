@@ -107,7 +107,7 @@ class Review(db.Model):
   car_id = db.Column(db.Integer, db.ForeignKey("cars.id"))
   user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
   rating = db.Column(db.Integer, nullable=False)
-  content = db.Column(db.String(50), nullable=False)
+  content = db.Column(db.String(250), nullable=False)
   created_at = db.Column(db.DateTime, default=datetime.now)
   updated_at = db.Column(db.DateTime, default=datetime.now)
 

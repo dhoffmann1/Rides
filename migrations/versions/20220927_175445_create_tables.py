@@ -1,7 +1,7 @@
 """create tables
 
 Revision ID: a4a5d0a1eb2a
-Revises: 
+Revises:
 Create Date: 2022-09-27 17:54:45.193716
 
 """
@@ -62,7 +62,7 @@ def upgrade():
     sa.Column('car_id', sa.Integer(), nullable=True),
     sa.Column('user_id', sa.Integer(), nullable=True),
     sa.Column('rating', sa.Integer(), nullable=False),
-    sa.Column('content', sa.String(length=50), nullable=False),
+    sa.Column('content', sa.String(length=250), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
     sa.ForeignKeyConstraint(['car_id'], ['cars.id'], ),

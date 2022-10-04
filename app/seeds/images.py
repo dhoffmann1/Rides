@@ -28,7 +28,7 @@ def seed_images():
   },
   {
     "car_id": 3,
-    "image_url": "https://www.carscoops.com/wp-content/uploads/2021/09/Chevrolet-Camaro-Z28-1024x555.jpg"
+    "image_url": "https://autoimage.capitalone.com/cms/Auto/assets/images/1117-hero-C1-2021-Chevrolet-Camaro-3LT-1LE-Red-Front-Quarter-Left.jpg"
   },
   {
     "car_id": 4,
