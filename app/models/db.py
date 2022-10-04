@@ -33,8 +33,8 @@ class Car(db.Model):
   fuel_type = db.Column(db.String, nullable=False)
   transmission = db.Column(db.String, nullable=False)
   engine = db.Column(db.String, nullable=False)
-  created_at = db.Column(db.DateTime, default=datetime.utcnow)
-  updated_at = db.Column(db.DateTime, default=datetime.utcnow)
+  created_at = db.Column(db.DateTime, default=datetime.now)
+  updated_at = db.Column(db.DateTime, default=datetime.now)
 
   # Relationships
   user = db.relationship("User", back_populates="cars")
@@ -108,8 +108,8 @@ class Review(db.Model):
   user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
   rating = db.Column(db.Integer, nullable=False)
   content = db.Column(db.String(50), nullable=False)
-  created_at = db.Column(db.DateTime, default=datetime.utcnow)
-  updated_at = db.Column(db.DateTime, default=datetime.utcnow)
+  created_at = db.Column(db.DateTime, default=datetime.now)
+  updated_at = db.Column(db.DateTime, default=datetime.now)
 
   # Relationships
   car = db.relationship("Car", back_populates="reviews")
@@ -124,7 +124,7 @@ class Review(db.Model):
       "content": self.content,
       "createdAt": self.created_at,
       "updatedAt": self.updated_at,
-      "car": self.car.to_dict_for_review(),
+      # "car": self.car.to_dict_for_review(),
       "user": self.user.to_dict_for_car()
     }
 

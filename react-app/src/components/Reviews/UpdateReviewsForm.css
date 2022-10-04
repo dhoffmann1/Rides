@@ -1,0 +1,10 @@
+#update-reviews-form-go-back {
+  color: rgb(251, 160, 238);
+  cursor: pointer;
+  transition: 0.4s ease all;
+}
+
+
+#update-reviews-form-go-back:hover {
+  font-size: 1.2em;
+}

@@ -1,8 +1,8 @@
 const GET_ALL_CARS = 'cars/getAllCars'
+// const GET_CAR_BY_ID = 'cars/getCarById'
 // const GET_FILTERED_CARS = 'cars/getFilteredCars'
 // const GET_SAVED_CARS = 'cars/getSavedCars'
 // const GET_YOUR_GARAGE = 'cars/getYourGarage'
-// const GET_CAR_BY_ID = 'cars/getCarById'
 const CREATE_CAR = 'cars/createCar'
 const UPDATE_CAR = 'cars/updateCar'
 const DELETE_CAR = 'cars/deleteCar'
@@ -79,6 +79,7 @@ export const getAllCarsThunk = () => async dispatch => {
   if(response.ok){
     let cars = await response.json()
     dispatch(getAllCarsAction(cars))
+    // console.log('payload/car in getAllCarsThunk', cars)
   }
 }
 
@@ -127,7 +128,7 @@ export const getAllCarsThunk = () => async dispatch => {
 // }
 // IMPORTANT: make sure the object you send from from is snake cased in keys
 export const createCarThunk = (payload) => async dispatch => {
-  console.log(payload)
+  // console.log(payload)
   const response = await fetch('/api/cars', {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -181,12 +182,13 @@ const carsReducer = (state = initialState, action) => {
   let newState;
   switch (action.type) {
     case GET_ALL_CARS: {
-      newState = {}
-      action.payload.cars.forEach(car => newState[car.id] = car)
+      // console.log('state in GET_ALL_CARS case', state)
+      newState = { ...state }
+      action.payload.cars.forEach(car => newState[car.id] = { ...car })
       return newState
     }
-    // case GET_CAR_BY_ID: {z
-    //   return action.payload
+    // case GET_CAR_BY_ID: {
+    //   return { ...state, [action.car.id]: { ...action.car }}
     // }
     // case GET_POSTS: {
     //   newState = {}

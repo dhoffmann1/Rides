@@ -1,0 +1,129 @@
+#reviews-form-overall-container {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 50px;
+}
+
+#reviews-form-second-container {
+  max-width: 1120px;
+  width: 80%;
+  padding-left: 80px;
+  padding-right: 80px;
+}
+
+#reviews-form-welcome-big-text {
+  font-size: 1.8em;
+  font-weight: bolder;
+  margin-bottom: 25px;
+}
+
+#reviews-form-welcome-small-text {
+  font-size: 0.8em;
+  margin-bottom: 50px;
+}
+
+#reviews-form-overall-star-ratings-text {
+  font-weight: bolder;
+  margin-bottom: 20px;
+}
+
+#reviews-form-overall-star-ratings-stars-container {
+  display: flex;
+  margin-bottom: 40px;
+  color: rgb(186, 31, 238);
+  font-size: 1.4em;
+  width: fit-content;
+  justify-content: space-between;
+}
+
+.reviews-form-single-star-class-unfilled {
+  margin-right: 10px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  border: 1px solid rgb(186, 31, 238);
+}
+
+.reviews-form-single-star-class-filled {
+  margin-right: 10px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  border: 1px solid rgb(186, 31, 238);
+  background-color: rgb(215, 215, 215);
+}
+
+#reviews-form-errors {
+  color: rgb(250, 114, 114);
+  margin-bottom: 15px;
+}
+
+#reviews-form-content-your-review {
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+.reviews-form-fields-class {
+  background-color: rgb(27, 27, 27);
+  font-size: 1.2em;
+  width: 400px;
+  height: 200px;
+  resize: none;
+  border: solid 2px rgb(181, 181, 181);
+  border-radius: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: rgb(215, 215, 215);
+  padding-left: 12px;
+  padding-top: 20px;
+  padding-bottom: -10px;
+  /* padding-right: 5px; */
+}
+
+#reviews-form-content-char-counter {
+  position: relative;
+  pointer-events: none;
+  right: 62px;
+  bottom: 20px;
+  font-size: 0.85em;
+  color: rgb(215, 215, 215, .8);
+}
+
+.reviews-form-fields-class:focus {
+  border: solid 2px rgb(86, 215, 250);
+  outline: none;
+}
+
+.reviews-form-submit-button {
+  text-decoration: none;
+  color: rgb(215, 215, 215);
+  background-color: #450e67;
+  border: solid #450e67 2px;
+  border-radius: 5px;
+  width: 280px;
+  height: 40px;
+  font-weight: bold;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.reviews-form-submit-button:hover {
+  background-color: #250838;
+  border: solid #250838 2px;
+  transition: 0.4s ease all;
+  cursor: pointer;
+}
+
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+textarea:-webkit-autofill:active {
+    box-shadow: none;
+    -webkit-box-shadow: 0 0 0 30px rgb(27, 27, 27) inset !important;
+    -webkit-text-fill-color: rgb(215, 215, 215) !important;
+}

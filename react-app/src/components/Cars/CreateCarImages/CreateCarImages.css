@@ -76,7 +76,8 @@
 
 #small-images {
   display: block;
-  width: 100%
+  width: 100%;
+  cursor: pointer;
 }
 
 #confirmation-container {

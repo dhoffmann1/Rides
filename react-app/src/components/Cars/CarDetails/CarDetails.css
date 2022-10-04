@@ -74,6 +74,7 @@
   display: block;
   object-fit: contain;
   max-width: 100%;
+  cursor: pointer;
 }
 
 #car-details-page-details-container {
