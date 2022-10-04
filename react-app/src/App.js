@@ -18,6 +18,7 @@ import ReviewsPage from './components/Reviews/ReviewsPage'
 import ReviewsForm from './components/Reviews/ReviewsForm'
 import UpdateReviewsForm from './components/Reviews/UpdateReviewsForm';
 import Footer from './components/Footer/Footer';
+import CarsSearchResults from './components/Cars/CarsSearchResults/CarsSearchResults';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -78,6 +79,9 @@ function App() {
             <ProtectedRoute path='/cars/:carId/edit' exact={true} >
               <UpdateCarForm />
             </ProtectedRoute>
+            <Route path='/cars/search' exact={false}>
+              <CarsSearchResults />
+            </Route>
             <ProtectedRoute path='/users/:userId' exact={true} >
               <User />
             </ProtectedRoute>

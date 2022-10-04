@@ -45,21 +45,24 @@
 #create-images-large-preview-container{
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100%;
-  margin-bottom: 50px;
   border: 1px solid rgb(215, 215, 215);
-  max-height: 400px;
+  height: 400px;
+  margin-bottom: 50px;
 }
 
 #large-preview-wrapper{
   display: flex;
-  align-items: center;
   justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 
 #large-preview-image{
   display: block;
-  width: 80%;
+  object-fit: contain;
+  max-width: 100%;
 }
 
 #small-images-grid {

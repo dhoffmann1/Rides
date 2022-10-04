@@ -1,6 +1,6 @@
 #cars-search-results-overall-container {
   display: flex;
-  /* margin-top: 50px; */
+  margin-top: 50px;
   justify-content: center;
   width: 100%;
   margin-bottom: 60px;
@@ -11,4 +11,139 @@
   width: 80%;
   padding-left: 80px;
   padding-right: 80px;
+}
+
+#cars-search-results-title {
+  font-size: 1.8em;
+  font-weight: bolder;
+  margin-bottom: 30px;
+}
+
+#cars-search-results-cars-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+#cars-search-results-go-back-div {
+  margin-top: 25px;
+}
+
+#cars-search-results-go-back-button {
+  cursor: pointer;
+  color: rgb(251, 160, 238);
+}
+
+#cars-search-results-go-back-button:hover {
+  transition: 0.4s ease all;
+  font-size: 1.2em;
+}
+
+#cars-search-results-single-car-container {
+  border: solid 1px #444444;
+  padding: 2px;
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: rgb(41, 41, 41);
+  cursor: pointer;
+  /* box-shadow: 2px 2px 2px rgb(215, 215, 215, .4); */
+}
+
+#cars-search-results-single-car-container:hover {
+  border: solid 3px #515151;
+  padding: 0px;
+}
+
+#cars-search-results-single-car-container:hover #cars-search-results-single-car-year-make-model-trim {
+  text-decoration: underline;
+}
+
+#cars-search-results-single-car-grid {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  padding: 10px;
+  padding-left: 0px;
+  gap: 10px
+}
+
+#cars-search-results-single-car-left-grid {
+  display: flex;
+  width: 100%;
+}
+
+#cars-search-results-single-car-image-container {
+  display: flex;
+  width: 100%;
+  background-color: rgb(28, 27, 27);
+  height: 200px;
+  align-items: center;
+  justify-content: center;
+}
+
+#cars-search-results-single-car-image-wrapper {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+#cars-search-results-single-car-image {
+  display: block;
+  object-fit: contain;
+  max-width: 100%;
+}
+
+#cars-search-results-single-car-right-grid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+
+#cars-search-results-single-car-used-saved-container {
+  display: flex;
+  margin: 15px 0px;
+  justify-content: space-between;
+}
+
+#cars-search-results-single-car-used-component {
+  font-size: 1.0em;
+  color: rgb(215, 215, 215, 0.8);
+}
+
+#cars-search-results-single-car-year-make-model-trim {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+#cars-search-results-single-car-milage {
+ font-size: 1.0em;
+ margin-bottom: 10px;
+}
+
+#cars-search-results-single-car-price {
+  font-size: 1.6em;
+  margin-bottom: 15px;
+}
+
+#cars-search-results-single-car-great-deal {
+  width: fit-content;
+  background-color: rgba(31, 255, 34, 0.3);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#cars-search-results-single-car-good-deal {
+  width: fit-content;
+  background-color: rgba(223, 248, 30, 0.3);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#cars-search-results-single-car-fair-deal {
+  width: fit-content;
+  background-color: rgba(222, 169, 53, 0.3);
+  padding: 5px;
+  border-radius: 5px;
 }

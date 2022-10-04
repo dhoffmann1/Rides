@@ -25,9 +25,9 @@ const Search = () => {
     let makeSearch = make === 'All makes' ? 'all+makes' : make;
     let priceSearch = price === 'No max price' ? 'no+max+price' : price;
 
-    let newState = _new === 'New & used cars' ? 'both' : _new === 'New cars';
-    let makeState = make === 'All makes' ? 'all' : make;
-    let priceState = price === 'No max price' ? 0 : Number(price.replace(/[^0-9.-]+/g,""))
+    let newState = _new === 'New & used cars' ? null : _new === 'New cars';
+    let makeState = make === 'All makes' ? null : make;
+    let priceState = price === 'No max price' ? null : Number(price.replace(/[^0-9.-]+/g,""))
 
     // console.log('newState from Search', newState)
     // console.log('makeState from Search', makeState)

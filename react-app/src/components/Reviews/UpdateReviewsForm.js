@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { getAllCarsThunk } from "../../store/cars";
 import { getUserThunk } from "../../store/session";
 import { updateReviewThunk } from "../../store/reviews";
@@ -12,9 +12,6 @@ const UpdateReviewsForm = () => {
   const car = carsArray.find(car => car.id === +carId);
   const sessionUser = useSelector(state => state.session.user);
   const reviewToUpdate = car?.reviews.find(review => review.id === +reviewId)
-
-  // console.log('car in UpdateReviewsForm', car)
-  // console.log('reviewToUpdate', reviewToUpdate)
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -37,7 +34,7 @@ const UpdateReviewsForm = () => {
       }
     }, 100)
     return () => clearTimeout(timer);
-  }, [dispatch, forceRender])
+  }, [dispatch, sessionUser.id, forceRender])
 
 
   if (!sessionUser) return <>Session User Not Loaded</>

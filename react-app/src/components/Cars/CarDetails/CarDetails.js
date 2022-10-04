@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useHistory, useParams } from "react-router-dom";
 import { getAllCarsThunk } from "../../../store/cars";
 import { getUserThunk } from "../../../store/session";
 import "./CarDetails.css";
@@ -15,9 +15,10 @@ const CarDetails = () => {
   console.log('carReviews in CarDetails', carReviews)
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const [detailsPreviewImage, setDetailsPreviewImage] = useState(car?.images.length > 0 ? car.images[0].imageUrl : 'https://www.willow-car-sales.co.uk/wp-content/uploads/2019/11/placeholder-image-1.jpg')
-  const [forceRender, setForceRender] = useState(false);
+  // const [forceRender, setForceRender] = useState(false);
 
 
   console.log('sessionUser in CarDetails Component', sessionUser)
@@ -26,15 +27,18 @@ const CarDetails = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       dispatch(getUserThunk(sessionUser.id));
-      dispatch(getAllCarsThunk());
-      if (car?.images.length > 0) {
-        setDetailsPreviewImage(car.images[0].imageUrl)
-      } else {
-        setForceRender(!forceRender)
-      }
-    }, 100)
-    return () => clearTimeout(timer);
-  }, [dispatch, sessionUser.id, forceRender])
+      dispatch(getAllCarsThunk())
+        .then(() => {
+          if (car?.images.length > 0) {
+            setDetailsPreviewImage(car.images[0].imageUrl)
+          }
+        });
+    }, 75)
+
+    return () => {
+      clearTimeout(timer);
+    }
+  }, [dispatch, car?.images.length, sessionUser.id])
 
   if (!sessionUser) return <>Session User Not Loaded</>
   if (!car) return <>Could not find car with this ID</>
@@ -153,8 +157,9 @@ const CarDetails = () => {
             {car.reviews.length > 0 && <NavLink id="car-details-page-see-all-reviews-navlink" to={`/cars/${car.id}/reviews`}>See all {car.reviews.length} consumer reviews</NavLink>}
           </div>
           <div id="car-details-page-right-side-container">
-            <div id="car-details-page-contact-seller-container">Contact Seller</div>
-            <div id="car-details-page-calculator-container">Calculator</div>
+            <div id="car-details-page-go-back-button" onClick={() => history.go(-1)}>Go back</div>
+            <div id="car-details-page-contact-seller-container">Contact Seller (Bonus Placeholder)</div>
+            <div id="car-details-page-calculator-container">Calculator (Bonus Placeholder)</div>
           </div>
         </div>
         {/* <div id="car-details-page-recommended-vehicles">Other Recommended Vehicles</div> */}

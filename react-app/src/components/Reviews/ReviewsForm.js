@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink, useHistory, useParams } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { getAllCarsThunk } from "../../store/cars";
 import { getUserThunk } from "../../store/session";
 import { createReviewThunk } from "../../store/reviews";
@@ -18,13 +18,13 @@ const ReviewsForm = () => {
   const [rating, setRating] = useState(0);
   const [content, setContent] = useState('');
   const [errors, setErrors] = useState([]);
-  const [forceRender, setForceRender] = useState(false);
+  // const [forceRender, setForceRender] = useState(false);
 
 
   useEffect(() => {
     dispatch(getUserThunk(sessionUser.id));
     dispatch(getAllCarsThunk());
-  }, [dispatch, forceRender])
+  }, [dispatch, sessionUser.id])
 
 
   if (!sessionUser) return <>Session User Not Loaded</>

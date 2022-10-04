@@ -22,23 +22,21 @@ const ReviewsPage = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       dispatch(getUserThunk(sessionUser.id));
-      dispatch(getAllCarsThunk());
+      dispatch(getAllCarsThunk())
+        .then(() => {
+          if (car?.reviews.length > 0) {
+            let sumRatings = 0;
+            car.reviews.forEach(review => sumRatings += review.rating)
+            setAvgStarRating(+(sumRatings/car.reviews.length))
+          } else {
+            setAvgStarRating(0);
+          }
+        })
+      ;
     }, 75)
 
-    const timer2 = setTimeout(() => {
-      if (car?.reviews.length > 0) {
-        let sumRatings = 0;
-        car.reviews.forEach(review => sumRatings += review.rating)
-        setAvgStarRating(+(sumRatings/car.reviews.length))
-      } else {
-        setAvgStarRating(0);
-      }
-    }, 150)
-    return () => {
-      clearTimeout(timer);
-      clearTimeout(timer2);
-    }
-  }, [dispatch, car?.reviews.length, avgStarRating, forceRender])
+    return () => clearTimeout(timer);
+  }, [dispatch, car?.reviews.length, avgStarRating, forceRender, sessionUser.id])
 
 
   const handleDelete = reviewId => {
@@ -137,7 +135,9 @@ const ReviewsPage = () => {
           </div>
           <div id="reviews-page-right-side-grid-container">
             <div id="reviews-page-preview-image-wrapper">
-              <img id="reviews-page-preview-image" src={car.images[0].imageUrl} alt="preview" onClick={() => history.push(`/cars/${carId}/details`)}onError={e => { e.currentTarget.src = 'https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png'; }} />
+            {car.images.length === 0 && <img id="reviews-page-preview-image" src={'https://www.willow-car-sales.co.uk/wp-content/uploads/2019/11/placeholder-image-1.jpg'} alt="preview" onClick={() => history.push(`/cars/${carId}/details`)} onError={e => { e.currentTarget.src = 'https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png'; }} />}
+            {car.images.length > 0 && <img id="reviews-page-preview-image" src={car.images[0]?.imageUrl} alt="preview" onClick={() => history.push(`/cars/${carId}/details`)} onError={e => { e.currentTarget.src = 'https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png'; }} />}
+              {/* <img id="reviews-page-preview-image" src={car.images[0]?.imageUrl} alt="preview" onClick={() => history.push(`/cars/${carId}/details`)} onError={e => { e.currentTarget.src = 'https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png'; }} /> */}
             </div>
           </div>
         </div>
