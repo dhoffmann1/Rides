@@ -2,7 +2,8 @@
   display: flex;
   margin-top: 50px;
   justify-content: center;
-  width: 100%
+  width: 100%;
+  margin-bottom: 60px;
 }
 
 #create-image-page-second-container {
@@ -72,6 +73,7 @@
   display: flex;
   width: 100%;
   max-width: 420px;
+  max-height: 300px;
 }
 
 #small-images {
@@ -193,9 +195,6 @@ input:not(:focus):valid ~ .floating-label-images {
 
 #create-image-buttons-container {
   display: flex;
-  margin-bottom: 40px;
-  /* justify-content: space-between; */
-
 }
 
 .create-image-sign-in-submit-button {

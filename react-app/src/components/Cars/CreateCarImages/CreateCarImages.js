@@ -27,9 +27,10 @@ const CreateCarImages = () => {
     dispatch(getAllCarsThunk())
   }, [dispatch, carId, forceRender])
 
-  const handleDelete = imageId => {
-    dispatch(deleteImageThunk(imageId))
+  const handleDelete = image => {
+    dispatch(deleteImageThunk(image.id))
     setShowConfirmation(false)
+    if (image.imageUrl === displayImage) setDisplayImage('https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png')
     setErrors([])
     setForceRender(!forceRender)
   }
@@ -93,7 +94,7 @@ const CreateCarImages = () => {
                         <span id='confirmation-container'>
                           <div id='confirmation-text'>Are you sure you want to delete this Image?</div>
                           <div id='confirmation-options-container'>
-                            <div id='confirmation-yes' onClick={() => handleDelete(image.id)}>Yes</div>
+                            <div id='confirmation-yes' onClick={() => handleDelete(image)}>Yes</div>
                             <div id='confirmation-no' onClick={() => setShowConfirmation(false)}>No</div>
                           </div>
                         </span>

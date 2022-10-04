@@ -1,0 +1,14 @@
+#cars-search-results-overall-container {
+  display: flex;
+  /* margin-top: 50px; */
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+#cars-search-results-second-container {
+  max-width: 1120px;
+  width: 80%;
+  padding-left: 80px;
+  padding-right: 80px;
+}

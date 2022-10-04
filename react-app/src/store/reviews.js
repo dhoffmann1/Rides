@@ -1,6 +1,6 @@
 const CREATE_REVIEW = 'cars/createReview'
 const UPDATE_REVIEW = 'cars/updateReview'
-const DELETE_REVIEW = 'cars/deleteREeview'
+const DELETE_REVIEW = 'cars/deleteReview'
 
 
 /********************************** ACTIONS **********************************/

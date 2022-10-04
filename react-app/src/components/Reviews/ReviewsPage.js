@@ -19,25 +19,26 @@ const ReviewsPage = () => {
   const [avgStarRating, setAvgStarRating] = useState(0);
   const [forceRender, setForceRender] = useState(false);
 
-
-  // console.log('sessionUser in ReviewsPage Component', sessionUser)
-  // console.log('car in ReviewsPage Component', car)
-  // console.log('avgStarRating before setASR if-statement', avgStarRating)
-
   useEffect(() => {
     const timer = setTimeout(() => {
       dispatch(getUserThunk(sessionUser.id));
       dispatch(getAllCarsThunk());
+    }, 75)
+
+    const timer2 = setTimeout(() => {
       if (car?.reviews.length > 0) {
         let sumRatings = 0;
         car.reviews.forEach(review => sumRatings += review.rating)
         setAvgStarRating(+(sumRatings/car.reviews.length))
       } else {
-        setForceRender(!forceRender)
+        setAvgStarRating(0);
       }
-    }, 100)
-    return () => clearTimeout(timer);
-  }, [dispatch, forceRender])
+    }, 150)
+    return () => {
+      clearTimeout(timer);
+      clearTimeout(timer2);
+    }
+  }, [dispatch, car?.reviews.length, avgStarRating, forceRender])
 
 
   const handleDelete = reviewId => {
@@ -47,11 +48,6 @@ const ReviewsPage = () => {
 
   if (!sessionUser) return <>Session User Not Loaded</>
   if (!car) return <>Could not find car with this ID</>
-  if (car?.reviews.length < 1) return <>Car has no reviews.  Be the first to leave one.</>
-
-
-  // console.log('avgStarRating after setASR if-statement', avgStarRating)
-
 
   return (
     <div id="reviews-page-overall-container">

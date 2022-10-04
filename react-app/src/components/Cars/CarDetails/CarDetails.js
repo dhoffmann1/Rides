@@ -10,6 +10,9 @@ const CarDetails = () => {
   const carsArray = useSelector(state => Object.values(state.cars));
   const car = carsArray.find(car => car.id === +carId);
   const sessionUser = useSelector(state => state.session.user);
+  const carReviews = car?.reviews.slice(0, 3);
+
+  console.log('carReviews in CarDetails', carReviews)
 
   const dispatch = useDispatch();
 
@@ -60,7 +63,7 @@ const CarDetails = () => {
             <div id="car-details-page-details-container">
               <div id="car-details-page-used-save-container">
                 <div id="car-details-page-used-info">{car.new ? 'New' : 'Used'}</div>
-                <div id="car-details-page-saved-component">Saved Component</div>
+                <div id="car-details-page-saved-component">Saved Component (Placeholder)</div>
               </div>
               <div id="car-details-page-year-make-model-trim">{car.year} {car.make} {car.model} {car.trim}</div>
               <div id="car-details-page-milage">{car.miles.toLocaleString()} mi.</div>
@@ -104,14 +107,57 @@ const CarDetails = () => {
                 <div className="car-details-page-basics-info-class" id="car-details-page-basics-mileage-info">{car.miles.toLocaleString()} mi.</div>
               </div>
             </div>
-            <div id="car-details-page-reviews-container">Reviews</div>
+            <div id="car-details-page-reviews-title">Consumer Reviews</div>
+            {carReviews.map((review, index) => {
+              return (
+                <div id="reviews-page-single-review-container" key={index}>
+                  <div id="reviews-page-single-star-ratings-container">
+                    <div id="reviews-page-single-star-ratings-number-stars-container">
+                      <div id="reviews-page-single-star-ratings-number">{review.rating.toFixed(1)}</div>
+                      <div id="reviews-page-single-star-ratings-stars-container">
+                        <div id="reviews-page-single-star-ratings-first-star">
+                          {review.rating < 0.25 && <i class="fa-regular fa-star"></i>}
+                          {review.rating >= 0.25 && review.rating < 0.75 && <i class="fa-solid fa-star-half-stroke"></i>}
+                          {review.rating >= 0.75 && <i class="fa-solid fa-star"></i>}
+                        </div>
+                        <div id="reviews-page-single-star-ratings-second-star">
+                          {review.rating < 1.25 && <i class="fa-regular fa-star"></i>}
+                          {review.rating >= 1.25 && review.rating < 1.75 && <i class="fa-solid fa-star-half-stroke"></i>}
+                          {review.rating >= 1.75 && <i class="fa-solid fa-star"></i>}
+                        </div>
+                        <div id="reviews-page-single-star-ratings-third-star">
+                          {review.rating < 2.25 && <i class="fa-regular fa-star"></i>}
+                          {review.rating >= 2.25 && review.rating < 2.75 && <i class="fa-solid fa-star-half-stroke"></i>}
+                          {review.rating >= 2.75 && <i class="fa-solid fa-star"></i>}
+                        </div>
+                        <div id="reviews-page-single-star-ratings-fourth-star">
+                          {review.rating < 3.25 && <i class="fa-regular fa-star"></i>}
+                          {review.rating >= 3.25 && review.rating < 3.75 && <i class="fa-solid fa-star-half-stroke"></i>}
+                          {review.rating >= 3.75 && <i class="fa-solid fa-star"></i>}
+                        </div>
+                        <div id="reviews-page-single-star-ratings-fifth-star">
+                          {review.rating < 4.25 && <i class="fa-regular fa-star"></i>}
+                          {review.rating >= 4.25 && review.rating < 4.75 && <i class="fa-solid fa-star-half-stroke"></i>}
+                          {review.rating >= 4.75 && <i class="fa-solid fa-star"></i>}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div id="reviews-page-single-review-date">{review.createdAt.split(', ')[1].slice(0, 11)}</div>
+                  <div id="reviews-page-single-review-user-information">By {review.user.firstName} {review.user.lastName}</div>
+                  <div id="reviews-page-single-review-content">{review.content}</div>
+                </div>
+              )
+            })}
+            {car.reviews.length < 1 && <NavLink id="car-details-page-see-all-reviews-navlink" to={`/cars/${car.id}/reviews`}>Be the first to leave a consumer review</NavLink>}
+            {car.reviews.length > 0 && <NavLink id="car-details-page-see-all-reviews-navlink" to={`/cars/${car.id}/reviews`}>See all {car.reviews.length} consumer reviews</NavLink>}
           </div>
           <div id="car-details-page-right-side-container">
             <div id="car-details-page-contact-seller-container">Contact Seller</div>
             <div id="car-details-page-calculator-container">Calculator</div>
           </div>
         </div>
-        <div id="car-details-page-recommended-vehicles">Other Recommended Vehicles</div>
+        {/* <div id="car-details-page-recommended-vehicles">Other Recommended Vehicles</div> */}
       </div>
     </div>
   );

@@ -65,7 +65,7 @@ const UpdateReviewsForm = () => {
 
     await dispatch(updateReviewThunk(reviewId, updatedReview))
 
-    alert('Review successfully updated!')
+    // alert('Review successfully updated!')
     history.push(`/cars/${carId}/reviews`);
   };
 

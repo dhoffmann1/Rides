@@ -2,7 +2,8 @@
   display: flex;
   margin-top: 50px;
   justify-content: center;
-  width: 100%
+  width: 100%;
+  margin-bottom: 60px;
 }
 
 #create-car-page-second-container {
@@ -108,11 +109,6 @@ input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px rgb(27, 27, 27) inset !important;
     -webkit-text-fill-color: rgb(215, 215, 215) !important;
 }
-
-#create-car-demo-info {
-  margin-bottom: 40px;
-}
-
 
 .create-car-fields-class-select {
   background-color: rgb(27, 27, 27);

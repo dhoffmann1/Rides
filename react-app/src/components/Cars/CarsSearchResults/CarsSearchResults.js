@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllCarsThunk } from "../../store/cars";
 import { NavLink } from "react-router-dom";
 import Search from "../Search/Search.js";
-import "./LandingPage.css";
+import "./CarsSearchResults.css";
 
-const LandingPage = () => {
+const CarsSearchResults = () => {
   let welcomeCars = useSelector(state => Object.values(state.cars)).slice(0, 4)
 
   const dispatch = useDispatch();
@@ -17,18 +17,18 @@ const LandingPage = () => {
   // console.log(welcomeCars)
 
   return (
-    <div id="landingpage-overall-container">
-      <div id="landingpage-second-container">
-        <div id="landingpage-grid">
+    <div id="cars-search-results-overall-container">
+      <div id="cars-search-results-second-container">
+        <div id="cars-search-results-grid">
           <div id="the-easiest-way-to-sell-your-car-container">
             <div id="the-easiest-smaller-container">The easiest way to sell your car</div>
           </div>
-          <div id="landingpage-filter-search-container">
-            <div id="landingpage-filter-search-wrapper">
-              <div id="landingpage-filter-search-make-bar">
-                <div id="landingpage-make-word">Make</div>
+          <div id="cars-search-results-filter-search-container">
+            <div id="cars-search-results-filter-search-wrapper">
+              <div id="cars-search-results-filter-search-make-bar">
+                <div id="cars-search-results-make-word">Make</div>
               </div>
-              {/* <div id="landingpage-search-engine">Search engine</div> */}
+              {/* <div id="cars-search-results-search-engine">Search engine</div> */}
               <Search />
             </div>
           </div>
@@ -68,4 +68,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage;
+export default CarsSearchResults;

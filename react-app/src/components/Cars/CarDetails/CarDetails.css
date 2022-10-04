@@ -3,7 +3,7 @@
   margin-top: 50px;
   justify-content: center;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 }
 
 #car-details-page-second-container {
@@ -164,6 +164,22 @@
   font-weight: bolder;
 }
 
-#car-details-page-reviews-container {
+#car-details-page-reviews-title {
+  font-size: 2.4em;
   margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+#car-details-page-see-all-reviews-navlink {
+  text-decoration: none;
+  color: rgb(251, 160, 238);
+  cursor: pointer;
+  /* margin-bottom: 20px; */
+  height: 30px;
+}
+
+#car-details-page-see-all-reviews-navlink:hover {
+  font-size: 1.2em;
+  transition: 0.4s ease all;
+  text-decoration: underline;
 }

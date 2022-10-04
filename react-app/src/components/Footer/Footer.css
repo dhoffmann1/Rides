@@ -1,0 +1,25 @@
+#footer-main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  border-top: solid lightgrey 1px;
+  background-color: #1f1f1f;
+  box-sizing: border-box;
+}
+
+#footer-80px-padding {
+  padding-left: 80px;
+  padding-right: 80px;
+  /* height: 20px; */
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1120px;
+  width: 80%;
+  padding: 15px;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(215, 215, 215);
+}

@@ -52,8 +52,8 @@ const ReviewsForm = () => {
 
     await dispatch(createReviewThunk(carId, newReview))
 
-    alert('Review successfully added to car!')
-    history.push(`/cars/${carId}/details`);
+    // alert('Review successfully added to car!')
+    history.push(`/cars/${carId}/reviews`);
   };
 
   return (
