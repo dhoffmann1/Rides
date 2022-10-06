@@ -75,7 +75,7 @@ const SignUpForm = () => {
                 value={firstName}
                 required
               />
-              <span className="floating-label">First name</span>
+              <span className="floating-label-sign-up">First name</span>
             </div>
             <div>
               <input
@@ -87,7 +87,7 @@ const SignUpForm = () => {
                 value={lastName}
                 required
               />
-              <span className="floating-label">Last name</span>
+              <span className="floating-label-sign-up">Last name</span>
             </div>
             <div>
               <input
@@ -99,7 +99,7 @@ const SignUpForm = () => {
                 value={email}
                 required
               />
-              <span className="floating-label">Email</span>
+              <span className="floating-label-sign-up">Email</span>
             </div>
             <div>
               <input
@@ -111,7 +111,7 @@ const SignUpForm = () => {
                 value={password}
                 required
               />
-              <span className="floating-label">Password</span>
+              <span className="floating-label-sign-up">Password</span>
             </div>
             <div>
               <input
@@ -123,7 +123,7 @@ const SignUpForm = () => {
                 value={repeatPassword}
                 required
               />
-              <span className="floating-label">Confirm password</span>
+              <span className="floating-label-sign-up">Confirm password</span>
             </div>
             <button className='sign-up-submit-button' type='submit'>Sign Up</button>
           </form>

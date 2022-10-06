@@ -31,13 +31,21 @@
 
 #create-car-welcome-small-text {
   font-size: 0.8em;
+  line-height: 15px;
 }
 
-#create-car-welcome-create-account-navlink {
-  text-decoration: none;
-  color: rgb(251, 160, 238);
+#create-car-form-grid-container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 50% 50%;
+  column-gap: 30px;
 }
 
+#create-car-form-left-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 
 #create-car-errors {
   color: rgb(250, 114, 114);
@@ -46,7 +54,7 @@
 
 .create-car-fields-class {
   background-color: rgb(27, 27, 27);
-  width: 400px;
+  width: 350px;
   height: 50px;
   border: solid 2px rgb(181, 181, 181);
   border-radius: 10px;
@@ -62,7 +70,7 @@
 .floating-label {
   position: relative;
   pointer-events: none;
-  right: 404px;
+  right: 354px;
   transition: 0.5s ease all;
   color: rgb(215, 215, 215);
 }
@@ -79,14 +87,20 @@ input:not(:focus):valid ~ .floating-label {
   opacity: .8;
 }
 
-.create-car-sign-in-submit-button {
+#create-car-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  width: 368px;
+}
+
+.create-car-submit-button {
   text-decoration: none;
   color: rgb(215, 215, 215);
   background-color: #450e67;
   border: solid #450e67 2px;
   border-radius: 5px;
-  width: 280px;
-  height: 40px;
+  width: 160px;
+  height: 50px;
   font-weight: bold;
   margin-top: 20px;
   display: flex;
@@ -94,7 +108,7 @@ input:not(:focus):valid ~ .floating-label {
   align-items: center;
 }
 
-.create-car-sign-in-submit-button:hover {
+.create-car-submit-button:hover {
   background-color: #250838;
   border: solid #250838 2px;
   transition: 0.4s ease all;
@@ -112,7 +126,7 @@ input:-webkit-autofill:active {
 
 .create-car-fields-class-select {
   background-color: rgb(27, 27, 27);
-  width: 418px;
+  width: 368px;
   height: 60px;
   border: solid 2px rgb(181, 181, 181);
   border-radius: 10px;
@@ -128,7 +142,7 @@ input:-webkit-autofill:active {
 .floating-label-select {
   position: relative;
   pointer-events: none;
-  right: 404px;
+  right: 354px;
   /* transition: 0.5s ease all; */
   color: rgb(215, 215, 215);
   bottom: 20px;
@@ -139,4 +153,12 @@ input:-webkit-autofill:active {
 select:focus {
   border: solid 2px rgb(86, 215, 250);
   outline: none;
+}
+
+/**********Media Queries**********/
+
+@media screen and (max-width: 1120px) {
+  #create-car-form-grid-container {
+    grid-template-columns: 100%;
+  }
 }

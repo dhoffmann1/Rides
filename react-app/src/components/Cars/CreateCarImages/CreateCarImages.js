@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { getAllCarsThunk } from '../../../store/cars';
 import { createImageThunk, deleteImageThunk } from '../../../store/images';
 
@@ -28,11 +28,12 @@ const CreateCarImages = () => {
   }, [dispatch, carId, forceRender])
 
   const handleDelete = image => {
-    dispatch(deleteImageThunk(image.id))
-    setShowConfirmation(false)
     if (image.imageUrl === displayImage) setDisplayImage('https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png')
+    setShowConfirmation(false)
     setErrors([])
-    setForceRender(!forceRender)
+    dispatch(deleteImageThunk(image.id))
+      .then(() => setForceRender(!forceRender))
+    // setForceRender(!forceRender)
   }
 
   const handleSubmit = async (e) => {
@@ -40,7 +41,6 @@ const CreateCarImages = () => {
 
     setErrors([])
     let errorsArray = []
-
 
     // Check the extensions of the images
     let allowedImageExtensions = ['.jpg', '.jpeg', '.png'];
@@ -54,12 +54,10 @@ const CreateCarImages = () => {
       return
     }
 
-    await dispatch(createImageThunk(carId, { image_url: imageUrl }))
-    // alert('Image successfully added')
     setImageUrl('');
-
-
-    setForceRender(!forceRender)
+    dispatch(createImageThunk(carId, { image_url: imageUrl }))
+      .then(() => setForceRender(!forceRender))
+    // setForceRender(!forceRender)
   };
 
   if (!car) return (<></>)
@@ -70,8 +68,14 @@ const CreateCarImages = () => {
       <div id='create-image-page-second-container'>
         <div id='create-image-page-grid'>
           <div id='create-image-welcome-text'>
-            <div id='create-image-welcome-big-text'>{car.year} {car.make} {car.model} {car.trim} - Images</div>
-            <div id='create-image-welcome-small-text'>Please use this page to add and delete images from this vehicle. Click on an image to enlarge it.</div>
+            <div id='create-image-welcome-big-text-done-container'>
+              <div id='create-image-welcome-big-text'>{car.year} {car.make} {car.model} {car.trim} - Images</div>
+              <div id='create-image-are-you-done'>Done with images?</div>
+            </div>
+            <div id='create-image-welcome-small-text-click-here-container'>
+              <div id='create-image-welcome-small-text'>Please use this page to add and delete images from this vehicle. Click on an image to enlarge it.</div>
+              <NavLink id='create-image-click-here-your-garage' to={'/cars/your-garage'}>Go to Your Garage</NavLink>
+            </div>
           </div>
           <div id='create-images-preview-container'>
             <div id='create-images-large-preview-container'>

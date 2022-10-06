@@ -23,18 +23,47 @@
   margin-bottom: 15px;
 }
 
+#create-image-welcome-big-text-done-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 #create-image-welcome-big-text {
   font-size: 1.8em;
   font-weight: bolder;
   margin-bottom: 15px;
 }
 
+#create-image-are-you-done {
+  font-weight: bolder;
+}
+
+#create-image-welcome-small-text-click-here-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  line-height: 15px;
+}
+
 #create-image-welcome-small-text {
   font-size: 0.8em;
 }
 
+#create-image-click-here-your-garage {
+  text-decoration: none;
+  color: rgb(251, 160, 238);
+}
+
+#create-image-click-here-your-garage:hover {
+  font-size: 1.2em;
+  transition: 0.4s ease all;
+  text-decoration: underline;
+}
+
 #create-images-preview-container {
-  margin-top: 30px;
+  /* margin-top: 30px; */
   margin-bottom: 30px;
   display: flex;
   flex-direction: column;

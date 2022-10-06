@@ -58,7 +58,7 @@ const LoginForm = () => {
                 required
                 onChange={updateEmail}
               />
-              <span className="floating-label">Email</span>
+              <span className="floating-label-sign-in">Email</span>
             </div>
             <div>
               <input
@@ -70,7 +70,7 @@ const LoginForm = () => {
                 required
                 onChange={updatePassword}
               />
-              <span className="floating-label">Password</span>
+              <span className="floating-label-sign-in">Password</span>
             </div>
             <button className='log-in-sign-in-submit-button' type='submit'>Sign in</button>
             <button className='log-in-sign-in-submit-button' type='submit' onClick={(e) => {

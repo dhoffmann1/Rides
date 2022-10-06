@@ -23,7 +23,7 @@ const deleteImageAction = (id) => {
 
 
 export const createImageThunk = (carId, payload) => async dispatch => {
-  console.log(payload)
+  // console.log(payload)
   const response = await fetch(`/api/cars/${carId}/images`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },

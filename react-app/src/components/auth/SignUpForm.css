@@ -59,7 +59,7 @@
   /* padding-right: 5px; */
 }
 
-.floating-label {
+.floating-label-sign-up {
   position: relative;
   pointer-events: none;
   right: 404px;
@@ -72,8 +72,8 @@
   outline: none;
 }
 
-input:focus ~ .floating-label,
-input:not(:focus):valid ~ .floating-label {
+input:focus ~ .floating-label-sign-up,
+input:not(:focus):valid ~ .floating-label-sign-up {
   bottom: 20px;
   font-size: 10px;
   opacity: .8;

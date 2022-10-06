@@ -1,7 +1,7 @@
 #modal {
   position: fixed;
   top: 0;
-  right: 0;
+  right: calc((100vw - 1120px)/2);
   left: 0;
   bottom: 0;
   display: flex;
@@ -28,4 +28,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/**********Media Queries**********/
+
+@media screen and (max-width: 1120px) {
+  #modal {
+    right: 0;
+  }
 }

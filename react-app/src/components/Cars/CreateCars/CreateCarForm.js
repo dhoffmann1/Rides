@@ -98,233 +98,241 @@ const CreateCarForm = () => {
                 <div key={ind}>{error}</div>
               ))}
             </div>
-            <div>
-              <input
-                id='create-car-year-textfield'
-                className='create-car-fields-class'
-                name='year'
-                type='number'
-                value={year}
-                required
-                onChange={(e) => setYear(e.target.value)}
-              />
-              <span className="floating-label">Year</span>
+            <div id='create-car-form-grid-container'>
+              <div id='create-car-form-left-container'>
+                <div>
+                  <input
+                    id='create-car-year-textfield'
+                    className='create-car-fields-class'
+                    name='year'
+                    type='number'
+                    value={year}
+                    required
+                    onChange={(e) => setYear(e.target.value)}
+                  />
+                  <span className="floating-label">Year</span>
+                </div>
+                <div>
+                  {/* <label>Make: </label> */}
+                  <select
+                    id='create-car-make-selectfield'
+                    className='create-car-fields-class-select'
+                    name='make'
+                    required
+                    onChange={(e) => setMake(e.target.value)}
+                  >
+                    {makeOptions.map((make, i) => {
+                      return (
+                        <option key={i} value={make}>{make}</option>
+                      )
+                    })}
+                  </select>
+                  <span className="floating-label-select">Make</span>
+                </div>
+                <div>
+                  <input
+                    id='create-car-model-textfield'
+                    className='create-car-fields-class'
+                    name='model'
+                    type='text'
+                    value={model}
+                    required
+                    onChange={(e) => setModel(e.target.value)}
+                  />
+                  <span className="floating-label">Model</span>
+                </div>
+                <div>
+                  <input
+                    id='create-car-trim-textfield'
+                    className='create-car-fields-class'
+                    name='trim'
+                    type='text'
+                    value={trim}
+                    required
+                    onChange={(e) => setTrim(e.target.value)}
+                  />
+                  <span className="floating-label">Trim</span>
+                </div>
+                <div>
+                  <input
+                    id='create-car-miles-textfield'
+                    className='create-car-fields-class'
+                    name='miles'
+                    type='number'
+                    value={miles}
+                    required
+                    onChange={(e) => setMiles(e.target.value)}
+                  />
+                  <span className="floating-label">Milage</span>
+                </div>
+                <div>
+                  <input
+                    id='create-car-price-textfield'
+                    className='create-car-fields-class'
+                    name='price'
+                    type='number'
+                    value={price}
+                    required
+                    onChange={(e) => setPrice(e.target.value)}
+                  />
+                  <span className="floating-label">Price</span>
+                </div>
+                <div>
+                <select
+                    id='create-car-condition-selectfield'
+                    className='create-car-fields-class-select'
+                    name='condition'
+                    required
+                    onChange={(e) => setCondition(e.target.value)}
+                  >
+                    {conditionOptions.map((condition, i) => {
+                      return (
+                        <option key={i} value={condition}>{condition}</option>
+                      )
+                    })}
+                  </select>
+                  <span className="floating-label-select">Condition</span>
+                </div>
+                <div>
+                  <select
+                    id='create-car-new-selectfield'
+                    className='create-car-fields-class-select'
+                    name='new'
+                    required
+                    onChange={(e) => setNew(e.target.value)}
+                  >
+                    {newOptions.map((_new, i) => {
+                      return (
+                        <option key={i} value={_new}>{_new}</option>
+                      )
+                    })}
+                  </select>
+                  <span className="floating-label-select">New or Used?</span>
+                </div>
+              </div>
+              <div id='create-car-form-right-container'>
+                <div>
+                  <select
+                    id='create-car-exColor-selectfield'
+                    className='create-car-fields-class-select'
+                    name='exColor'
+                    required
+                    onChange={(e) => setExColor(e.target.value)}
+                  >
+                    {exColorOptions.map((exColor, i) => {
+                      return (
+                        <option key={i} value={exColor}>{exColor}</option>
+                      )
+                    })}
+                  </select>
+                  <span className="floating-label-select">Exterior Color</span>
+                </div>
+                <div>
+                  <select
+                    id='create-car-inColor-selectfield'
+                    className='create-car-fields-class-select'
+                    name='inColor'
+                    required
+                    onChange={(e) => setInColor(e.target.value)}
+                  >
+                    {inColorOptions.map((inColor, i) => {
+                      return (
+                        <option key={i} value={inColor}>{inColor}</option>
+                      )
+                    })}
+                  </select>
+                  <span className="floating-label-select">Interior Color</span>
+                </div>
+                <div>
+                  <select
+                    id='create-car-drivetrain-selectfield'
+                    className='create-car-fields-class-select'
+                    name='drivetrain'
+                    required
+                    onChange={(e) => setDrivetrain(e.target.value)}
+                  >
+                    {drivetrainOptions.map((drivetrain, i) => {
+                      return (
+                        <option key={i} value={drivetrain}>{drivetrain}</option>
+                      )
+                    })}
+                  </select>
+                  <span className="floating-label-select">Drivetrain</span>
+                </div>
+                <div>
+                  <input
+                    id='create-car-mpg-textfield'
+                    className='create-car-fields-class'
+                    name='mpg'
+                    type='number'
+                    value={mpg}
+                    required
+                    onChange={(e) => setMpg(e.target.value)}
+                  />
+                  <span className="floating-label">MPG</span>
+                </div>
+                <div>
+                  <select
+                    id='create-car-fuelType-selectfield'
+                    className='create-car-fields-class-select'
+                    name='fuelType'
+                    required
+                    onChange={(e) => setFuelType(e.target.value)}
+                  >
+                    {fuelTypeOptions.map((fuelType, i) => {
+                      return (
+                        <option key={i} value={fuelType}>{fuelType}</option>
+                      )
+                    })}
+                  </select>
+                  <span className="floating-label-select">Fuel Type</span>
+                </div>
+                <div>
+                  <select
+                    id='create-car-transmission-selectfield'
+                    className='create-car-fields-class-select'
+                    name='transmission'
+                    required
+                    onChange={(e) => setTransmission(e.target.value)}
+                  >
+                    {transmissionOptions.map((transmission, i) => {
+                      return (
+                        <option key={i} value={transmission}>{transmission}</option>
+                      )
+                    })}
+                  </select>
+                  <span className="floating-label-select">Transmission</span>
+                </div>
+                <div>
+                  <input
+                    id='create-car-engine-textfield'
+                    className='create-car-fields-class'
+                    name='engine'
+                    type='text'
+                    value={engine}
+                    required
+                    onChange={(e) => setEngine(e.target.value)}
+                  />
+                  <span className="floating-label">Engine</span>
+                </div>
+                <div id='create-car-buttons-container'>
+                  <button className='create-car-submit-button' type='submit'>Submit New Car</button>
+                  <button id='create-car-demo-info' className='create-car-submit-button' type='submit' onClick={(e) => {
+                    setYear(2019)
+                    // setMake('Acura')
+                    setModel('MDX')
+                    setTrim('3.5L')
+                    setMiles(3)
+                    setPrice(39990)
+                    // setCondition('Excellent')
+                    // setNew('New')
+                    // setExColor('Beign')
+                    setMpg(28)
+                    setEngine('V6 Cylinder Enginer')
+                  }}>Create Demo Car</button>
+                </div>
+              </div>
             </div>
-            <div>
-              {/* <label>Make: </label> */}
-              <select
-                id='create-car-make-selectfield'
-                className='create-car-fields-class-select'
-                name='make'
-                required
-                onChange={(e) => setMake(e.target.value)}
-              >
-                {makeOptions.map((make, i) => {
-                  return (
-                    <option key={i} value={make}>{make}</option>
-                  )
-                })}
-              </select>
-              <span className="floating-label-select">Make</span>
-            </div>
-            <div>
-              <input
-                id='create-car-model-textfield'
-                className='create-car-fields-class'
-                name='model'
-                type='text'
-                value={model}
-                required
-                onChange={(e) => setModel(e.target.value)}
-              />
-              <span className="floating-label">Model</span>
-            </div>
-            <div>
-              <input
-                id='create-car-trim-textfield'
-                className='create-car-fields-class'
-                name='trim'
-                type='text'
-                value={trim}
-                required
-                onChange={(e) => setTrim(e.target.value)}
-              />
-              <span className="floating-label">Trim</span>
-            </div>
-            <div>
-              <input
-                id='create-car-miles-textfield'
-                className='create-car-fields-class'
-                name='miles'
-                type='number'
-                value={miles}
-                required
-                onChange={(e) => setMiles(e.target.value)}
-              />
-              <span className="floating-label">Milage</span>
-            </div>
-            <div>
-              <input
-                id='create-car-price-textfield'
-                className='create-car-fields-class'
-                name='price'
-                type='number'
-                value={price}
-                required
-                onChange={(e) => setPrice(e.target.value)}
-              />
-              <span className="floating-label">Price</span>
-            </div>
-            <div>
-            <select
-                id='create-car-condition-selectfield'
-                className='create-car-fields-class-select'
-                name='condition'
-                required
-                onChange={(e) => setCondition(e.target.value)}
-              >
-                {conditionOptions.map((condition, i) => {
-                  return (
-                    <option key={i} value={condition}>{condition}</option>
-                  )
-                })}
-              </select>
-              <span className="floating-label-select">Condition</span>
-            </div>
-            <div>
-              <select
-                id='create-car-new-selectfield'
-                className='create-car-fields-class-select'
-                name='new'
-                required
-                onChange={(e) => setNew(e.target.value)}
-              >
-                {newOptions.map((_new, i) => {
-                  return (
-                    <option key={i} value={_new}>{_new}</option>
-                  )
-                })}
-              </select>
-              <span className="floating-label-select">New or Used?</span>
-            </div>
-            <div>
-            <select
-                id='create-car-exColor-selectfield'
-                className='create-car-fields-class-select'
-                name='exColor'
-                required
-                onChange={(e) => setExColor(e.target.value)}
-              >
-                {exColorOptions.map((exColor, i) => {
-                  return (
-                    <option key={i} value={exColor}>{exColor}</option>
-                  )
-                })}
-              </select>
-              <span className="floating-label-select">Exterior Color</span>
-            </div>
-            <div>
-            <select
-                id='create-car-inColor-selectfield'
-                className='create-car-fields-class-select'
-                name='inColor'
-                required
-                onChange={(e) => setInColor(e.target.value)}
-              >
-                {inColorOptions.map((inColor, i) => {
-                  return (
-                    <option key={i} value={inColor}>{inColor}</option>
-                  )
-                })}
-              </select>
-              <span className="floating-label-select">Interior Color</span>
-            </div>
-            <div>
-            <select
-                id='create-car-drivetrain-selectfield'
-                className='create-car-fields-class-select'
-                name='drivetrain'
-                required
-                onChange={(e) => setDrivetrain(e.target.value)}
-              >
-                {drivetrainOptions.map((drivetrain, i) => {
-                  return (
-                    <option key={i} value={drivetrain}>{drivetrain}</option>
-                  )
-                })}
-              </select>
-              <span className="floating-label-select">Drivetrain</span>
-            </div>
-            <div>
-              <input
-                id='create-car-mpg-textfield'
-                className='create-car-fields-class'
-                name='mpg'
-                type='number'
-                value={mpg}
-                required
-                onChange={(e) => setMpg(e.target.value)}
-              />
-              <span className="floating-label">MPG</span>
-            </div>
-            <div>
-            <select
-                id='create-car-fuelType-selectfield'
-                className='create-car-fields-class-select'
-                name='fuelType'
-                required
-                onChange={(e) => setFuelType(e.target.value)}
-              >
-                {fuelTypeOptions.map((fuelType, i) => {
-                  return (
-                    <option key={i} value={fuelType}>{fuelType}</option>
-                  )
-                })}
-              </select>
-              <span className="floating-label-select">Fuel Type</span>
-            </div>
-            <div>
-            <select
-                id='create-car-transmission-selectfield'
-                className='create-car-fields-class-select'
-                name='transmission'
-                required
-                onChange={(e) => setTransmission(e.target.value)}
-              >
-                {transmissionOptions.map((transmission, i) => {
-                  return (
-                    <option key={i} value={transmission}>{transmission}</option>
-                  )
-                })}
-              </select>
-              <span className="floating-label-select">Transmission</span>
-            </div>
-            <div>
-              <input
-                id='create-car-engine-textfield'
-                className='create-car-fields-class'
-                name='engine'
-                type='text'
-                value={engine}
-                required
-                onChange={(e) => setEngine(e.target.value)}
-              />
-              <span className="floating-label">Engine</span>
-            </div>
-            <button className='create-car-sign-in-submit-button' type='submit'>Submit New Car</button>
-            <button id='create-car-demo-info' className='create-car-sign-in-submit-button' type='submit' onClick={(e) => {
-              setYear(2019)
-              // setMake('Acura')
-              setModel('MDX')
-              setTrim('3.5L')
-              setMiles(3)
-              setPrice(39990)
-              // setCondition('Excellent')
-              // setNew('New')
-              // setExColor('Beign')
-              setMpg(28)
-              setEngine('V6 Cylinder Enginer')
-            }}>Create Demo Car</button>
           </form>
         </div>
       </div>

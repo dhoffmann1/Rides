@@ -41,7 +41,8 @@ const ReviewsPage = () => {
 
   const handleDelete = reviewId => {
     dispatch(deleteReviewThunk(reviewId))
-    setForceRender(!forceRender)
+      .then(() => setForceRender(!forceRender))
+    // setForceRender(!forceRender)
   }
 
   if (!sessionUser) return <>Session User Not Loaded</>

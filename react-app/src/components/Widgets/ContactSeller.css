@@ -1,0 +1,130 @@
+#contact-seller-overall-container {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center;
+  align-items: center; */
+  width: 100%;
+  height: 550px;
+  padding: 20px 10px;
+  margin-bottom: 150px;
+  box-sizing: border-box;
+  background-color: rgb(41, 41, 41);
+  border: 1px solid rgb(215, 215, 215, .7);
+  border-radius: 5px;
+}
+
+#contact-seller-title {
+  font-size: 2em;
+  margin-bottom: 5px;
+}
+
+#contact-seller-sellers-phone {
+  margin-bottom: 10px;
+  margin-left: 8px;
+}
+
+.contact-seller-fields-class {
+  background-color: rgb(27, 27, 27);
+  width: 92%;
+  height: 40px;
+  border: solid 2px rgb(181, 181, 181);
+  border-radius: 10px;
+  margin-top: 5px;
+  /* margin-bottom: 5px; */
+  color: rgb(215, 215, 215);
+  padding-left: 12px;
+  padding-top: 5px;
+  padding-bottom: -10px;
+  /* padding-right: 5px; */
+}
+
+.floating-label-contact-seller {
+  position: relative;
+  pointer-events: none;
+  bottom: 34px;
+  left: 14px;
+  transition: 0.5s ease all;
+  color: rgb(215, 215, 215);
+}
+
+.contact-seller-fields-class:focus {
+  border: solid 2px rgb(86, 215, 250);
+  outline: none;
+}
+
+input:focus ~ .floating-label-contact-seller,
+input:not(:focus):valid ~ .floating-label-contact-seller {
+  bottom: 48px;
+  font-size: 10px;
+  opacity: .8;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    box-shadow: none;
+    -webkit-box-shadow: 0 0 0 30px rgb(27, 27, 27) inset !important;
+    -webkit-text-fill-color: rgb(215, 215, 215) !important;
+}
+
+#contact-seller-content-textfield {
+  height: 100px;
+  resize: none;
+  overflow-y: auto;
+}
+
+#contact-seller-comments-label {
+  position: relative;
+  left: 8px;
+}
+
+.contact-seller-submit-button {
+  text-decoration: none;
+  color: rgb(215, 215, 215);
+  background-color: #450e67;
+  border: solid #450e67 2px;
+  border-radius: 5px;
+  width: 100%;
+  height: 50px;
+  font-weight: bold;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.0em;
+}
+
+.contact-seller-submit-button:hover {
+  background-color: #250838;
+  border: solid #250838 2px;
+  transition: 0.4s ease all;
+  cursor: pointer;
+}
+
+
+#contact-seller-sent-overall-container {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 150px;
+  padding: 20px 10px;
+  margin-bottom: 550px;
+  box-sizing: border-box;
+  background-color: rgb(41, 41, 41);
+  border: 1px solid rgb(215, 215, 215, .7);
+  border-radius: 5px;
+}
+
+#contact-seller-sent-checkmark {
+  font-size: 1.4em;
+  margin-right: 10px;
+  color: rgb(39, 214, 39)
+}
+
+#contact-seller-sent-message-title {
+  font-weight: bolder;
+  margin-bottom: 10px;
+}

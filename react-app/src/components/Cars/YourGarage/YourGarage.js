@@ -44,8 +44,8 @@ const YourGarage = () => {
                 <div id="your-garage-car-container" key={car.id}>
                   <div id="your-garage-car-main-container">
                     <div id="your-garage-car-image-container">
-                      {car?.images?.length === 0 && <img id="your-garage-car-image" src='https://www.willow-car-sales.co.uk/wp-content/uploads/2019/11/placeholder-image-1.jpg' alt={`car ${car.id}`}  />}
-                      {car?.images?.length > 0 && <img id="your-garage-car-image" src={car?.images[0]?.imageUrl} alt={`car ${car.id}`}  />}
+                      {car?.images?.length === 0 && <img id="your-garage-car-image" src='https://www.willow-car-sales.co.uk/wp-content/uploads/2019/11/placeholder-image-1.jpg' alt={`car ${car.id}`} onError={e => { e.currentTarget.src = 'https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png'; }} />}
+                      {car?.images?.length > 0 && <img id="your-garage-car-image" src={car?.images[0]?.imageUrl} alt={`car ${car.id}`} onError={e => { e.currentTarget.src = 'https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png'; }} />}
                     </div>
                     <span id='delete-car-icon' onClick={() => {
                         setShowConfirmation(!showConfirmation)

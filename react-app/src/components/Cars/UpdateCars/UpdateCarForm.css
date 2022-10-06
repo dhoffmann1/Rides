@@ -1,3 +1,5 @@
+/* IDs are the same as CreateCarForm.css */
+
 #create-car-page-overall-container {
   display: flex;
   margin-top: 50px;
@@ -30,14 +32,12 @@
 }
 
 #create-car-welcome-small-text {
+  /* display: flex; */
   font-size: 0.8em;
+  line-height: 15px;
+  align-items: flex-start;
+  /* justify-content: space-between; */
 }
-
-#create-car-welcome-create-account-navlink {
-  text-decoration: none;
-  color: rgb(251, 160, 238);
-}
-
 
 #create-car-errors {
   color: rgb(250, 114, 114);
@@ -46,7 +46,7 @@
 
 .create-car-fields-class {
   background-color: rgb(27, 27, 27);
-  width: 400px;
+  width: 350px;
   height: 50px;
   border: solid 2px rgb(181, 181, 181);
   border-radius: 10px;
@@ -62,7 +62,7 @@
 .floating-label {
   position: relative;
   pointer-events: none;
-  right: 404px;
+  right: 354px;
   transition: 0.5s ease all;
   color: rgb(215, 215, 215);
 }
@@ -112,7 +112,7 @@ input:-webkit-autofill:active {
 
 .create-car-fields-class-select {
   background-color: rgb(27, 27, 27);
-  width: 418px;
+  width: 368px;
   height: 60px;
   border: solid 2px rgb(181, 181, 181);
   border-radius: 10px;
@@ -128,7 +128,7 @@ input:-webkit-autofill:active {
 .floating-label-select {
   position: relative;
   pointer-events: none;
-  right: 404px;
+  right: 354px;
   /* transition: 0.5s ease all; */
   color: rgb(215, 215, 215);
   bottom: 20px;
@@ -149,4 +149,5 @@ select:focus {
 #update-car-images-navlink:hover {
   font-size: 1.5em;
   transition: 0.4s ease all;
+  text-decoration: underline;
 }

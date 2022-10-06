@@ -31,7 +31,7 @@ const deleteReviewAction = (id) => {
 
 
 export const createReviewThunk = (carId, payload) => async dispatch => {
-  console.log(payload)
+  // console.log(payload)
   const response = await fetch(`/api/cars/${carId}/reviews`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -45,7 +45,7 @@ export const createReviewThunk = (carId, payload) => async dispatch => {
 }
 
 export const updateReviewThunk = (reviewId, payload) => async dispatch => {
-  console.log(payload)
+  // console.log(payload)
   const response = await fetch(`/api/reviews/${reviewId}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },

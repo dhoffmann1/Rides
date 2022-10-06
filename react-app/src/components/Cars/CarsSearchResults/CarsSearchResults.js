@@ -10,7 +10,7 @@ const CarsSearchResults = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  console.log('location.state', location.state)
+  // console.log('location.state', location.state)
 
   const newFilter = location.state?.new;
   const makeFilter = location.state?.make;
@@ -18,14 +18,14 @@ const CarsSearchResults = () => {
 
 
   const allCarsArray = useSelector(state => Object.values(state.cars))
-  console.log('allCarsArray', allCarsArray)
+  // console.log('allCarsArray', allCarsArray)
 
   let filteredCars = allCarsArray;
   if (newFilter !== null) filteredCars = filteredCars.filter(car => car.new === newFilter);
   if (makeFilter) filteredCars = filteredCars.filter(car => car.make === makeFilter);
   if (priceFilter) filteredCars = filteredCars.filter(car => car.price <= priceFilter);
 
-  console.log('filteredCars', filteredCars)
+  // console.log('filteredCars', filteredCars)
 
   const newTitle = newFilter === null ? 'New & used' : newFilter ? 'New' : 'Used';
   const makeTitle = makeFilter === null ? 'cars' : makeFilter;

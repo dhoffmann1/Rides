@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
 import { getAllCarsThunk } from "../../../store/cars";
 import { getUserThunk } from "../../../store/session";
+import Calculator from "../../Widgets/Calculator";
+import ContactSeller from "../../Widgets/ContactSeller";
 import "./CarDetails.css";
 
 const CarDetails = () => {
@@ -12,7 +14,7 @@ const CarDetails = () => {
   const sessionUser = useSelector(state => state.session.user);
   const carReviews = car?.reviews.slice(0, 3);
 
-  console.log('carReviews in CarDetails', carReviews)
+  // console.log('carReviews in CarDetails', carReviews)
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -21,8 +23,8 @@ const CarDetails = () => {
   // const [forceRender, setForceRender] = useState(false);
 
 
-  console.log('sessionUser in CarDetails Component', sessionUser)
-  console.log('car in CarDetails Component', car)
+  // console.log('sessionUser in CarDetails Component', sessionUser)
+  // console.log('car in CarDetails Component', car)
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -158,8 +160,10 @@ const CarDetails = () => {
           </div>
           <div id="car-details-page-right-side-container">
             <div id="car-details-page-go-back-button" onClick={() => history.go(-1)}>Go back</div>
-            <div id="car-details-page-contact-seller-container">Contact Seller (Bonus Placeholder)</div>
-            <div id="car-details-page-calculator-container">Calculator (Bonus Placeholder)</div>
+            {/* <div id="car-details-page-contact-seller-container">Contact Seller (Bonus Placeholder)</div> */}
+            <ContactSeller car={car} />
+            {/* <div id="car-details-page-calculator-container">Calculator (Bonus Placeholder)</div> */}
+            <Calculator car={car} />
           </div>
         </div>
         {/* <div id="car-details-page-recommended-vehicles">Other Recommended Vehicles</div> */}
