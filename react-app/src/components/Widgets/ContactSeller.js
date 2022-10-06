@@ -92,7 +92,7 @@ const ContactSeller = ({ car }) => {
         <div id="contact-seller-sent-checkmark"><i class="fa-regular fa-square-check"></i></div>
         <div id="contact-seller-sent-message-container">
           <div id="contact-seller-sent-message-title">Message sent</div>
-          <div id="contact-seller-sent-message-small-text">The dealer will reach out to you with next steps.</div>
+          <div id="contact-seller-sent-message-small-text">The dealer will reach out to you via email in 72 hours with the next steps.</div>
         </div>
       </div>
     );

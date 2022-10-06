@@ -16,8 +16,14 @@ const Calculator = ({ car }) => {
   let loanTermsArray = [12, 24, 36, 48, 60, 72, 84];
 
   let principle = payPrice*(1+(tax/100)) - (downPayment);
-  let rate = ((apr/1200)*((1+(apr/1200))**terms))/(((1+(apr/1200))**terms)-1)
+  let rate = ((apr/1200)*((1+(apr/1200))**terms))/(((1+(apr/1200))**terms)-1);
   let monthlyPayment = (principle * rate).toFixed(0);
+  if (!rate) monthlyPayment = (principle/terms).toFixed(0)
+  // console.log(rate)
+
+  const preventNegative = e => {
+    if (e.key === '-' || e.key === '+' || e.key === 'e') e.preventDefault();
+  }
 
 
   return (
@@ -37,6 +43,7 @@ const Calculator = ({ car }) => {
                 type='number'
                 value={payPrice}
                 required
+                onKeyPress={preventNegative}
                 onChange={(e) => setPayPrice(e.target.value)}
               />
               <span className="floating-label-calculator">Car price ($USD)</span>
@@ -49,6 +56,7 @@ const Calculator = ({ car }) => {
                 type='number'
                 value={downPayment}
                 required
+                onKeyPress={preventNegative}
                 onChange={(e) => setDownPayment(e.target.value)}
               />
               <span className="floating-label-calculator">Down payment ($USD) (optional)</span>
@@ -72,6 +80,8 @@ const Calculator = ({ car }) => {
                 type='number'
                 value={apr}
                 required
+                onKeyPress={preventNegative}
+                step={0.01}
                 onChange={(e) => setApr(e.target.value)}
               />
               <span className="floating-label-calculator">Annual percentage rate (%)</span>
@@ -84,6 +94,8 @@ const Calculator = ({ car }) => {
                 type='number'
                 value={tax}
                 required
+                onKeyPress={preventNegative}
+                step={0.01}
                 onChange={(e) => setTax(e.target.value)}
               />
               <span className="floating-label-calculator">Sales tax (%)</span>

@@ -62,7 +62,7 @@ const CarsSearchResults = () => {
                   <div id="cars-search-results-single-car-right-grid">
                     <div id="cars-search-results-single-car-used-saved-container">
                       <div id="cars-search-results-single-car-used-component">{car.new ? 'New' : 'Used'}</div>
-                      <div id="cars-search-results-single-car-saved-component">Saved Component (placeholder)</div>
+                      {/* <div id="cars-search-results-single-car-saved-component">Saved Component (placeholder)</div> */}
                     </div>
                     <div id="cars-search-results-single-car-year-make-model-trim">{car.year} {car.make} {car.model} {car.trim}</div>
                     <div id="cars-search-results-single-car-milage">{car.miles.toLocaleString()} mi.</div>

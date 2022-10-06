@@ -69,7 +69,7 @@ const CarDetails = () => {
             <div id="car-details-page-details-container">
               <div id="car-details-page-used-save-container">
                 <div id="car-details-page-used-info">{car.new ? 'New' : 'Used'}</div>
-                <div id="car-details-page-saved-component">Saved Component (Placeholder)</div>
+                {/* <div id="car-details-page-saved-component">Saved Component (Placeholder)</div> */}
               </div>
               <div id="car-details-page-year-make-model-trim">{car.year} {car.make} {car.model} {car.trim}</div>
               <div id="car-details-page-milage">{car.miles.toLocaleString()} mi.</div>
@@ -160,13 +160,10 @@ const CarDetails = () => {
           </div>
           <div id="car-details-page-right-side-container">
             <div id="car-details-page-go-back-button" onClick={() => history.go(-1)}>Go back</div>
-            {/* <div id="car-details-page-contact-seller-container">Contact Seller (Bonus Placeholder)</div> */}
-            <ContactSeller car={car} />
-            {/* <div id="car-details-page-calculator-container">Calculator (Bonus Placeholder)</div> */}
-            <Calculator car={car} />
+            {sessionUser.id !== car.sellerId && <ContactSeller car={car} />}
+            {sessionUser.id !== car.sellerId && <Calculator car={car} />}
           </div>
         </div>
-        {/* <div id="car-details-page-recommended-vehicles">Other Recommended Vehicles</div> */}
       </div>
     </div>
   );
