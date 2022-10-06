@@ -18,6 +18,7 @@ const ContactSeller = ({ car }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!email.includes('@')) return alert('Not a valid email.  There was no @ sign.')
     setSent(true)
   }
 

@@ -8,7 +8,7 @@ const Calculator = ({ car }) => {
   let { price } = car;
 
   const [payPrice, setPayPrice] = useState(price);
-  const [downPayment, setDownPayment] = useState(price/5);
+  const [downPayment, setDownPayment] = useState((price/5).toFixed(0));
   const [terms, setTerms] = useState(72);
   const [apr, setApr] = useState(5.99);
   const [tax, setTax] = useState(7.25.toFixed(2));
