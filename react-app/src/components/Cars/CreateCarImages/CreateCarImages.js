@@ -15,7 +15,7 @@ const CreateCarImages = () => {
 
   const [errors, setErrors] = useState([]);
   const [imageUrl, setImageUrl] = useState('');
-  const [displayImage, setDisplayImage] = useState('https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png');
+  const [displayImage, setDisplayImage] = useState('https://ridesappbucket.s3.amazonaws.com/select_car.png');
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [showConfirmationId, setShowConfirmationId] = useState(0);
   const [forceRender, setForceRender] = useState(false);
@@ -28,7 +28,7 @@ const CreateCarImages = () => {
   }, [dispatch, carId, forceRender])
 
   const handleDelete = image => {
-    if (image.imageUrl === displayImage) setDisplayImage('https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png')
+    if (image.imageUrl === displayImage) setDisplayImage('https://ridesappbucket.s3.amazonaws.com/select_car.png')
     setShowConfirmation(false)
     setErrors([])
     dispatch(deleteImageThunk(image.id))
@@ -80,8 +80,8 @@ const CreateCarImages = () => {
           <div id='create-images-preview-container'>
             <div id='create-images-large-preview-container'>
               <div id='large-preview-wrapper'>
-                {car?.images?.length === 0 && <img id='large-preview-image' src={'https://www.willow-car-sales.co.uk/wp-content/uploads/2019/11/placeholder-image-1.jpg'} alt='large-preview' onError={e => { e.currentTarget.src = 'https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png'; }} />}
-                {car?.images?.length > 0 && <img id='large-preview-image' src={displayImage} alt='large-preview' onError={e => { e.currentTarget.src = 'https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png'; }} />}
+                {car?.images?.length === 0 && <img id='large-preview-image' src={'https://ridesappbucket.s3.amazonaws.com/awaiting_car.png'} alt='large-preview' onError={e => { e.currentTarget.src = 'https://ridesappbucket.s3.amazonaws.com/select_car.png'; }} />}
+                {car?.images?.length > 0 && <img id='large-preview-image' src={displayImage} alt='large-preview' onError={e => { e.currentTarget.src = 'https://ridesappbucket.s3.amazonaws.com/select_car.png'; }} />}
               </div>
             </div>
             <div id='small-images-container'>
@@ -89,7 +89,7 @@ const CreateCarImages = () => {
                 {car?.images?.map((image, index) => {
                   return (
                     <div id='small-images-wrapper' key={index}>
-                      <img id='small-images' src={image.imageUrl} alt={`car ${index}`} onClick={() => setDisplayImage(image.imageUrl)} onError={e => { e.currentTarget.src = 'https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png'; }} />
+                      <img id='small-images' src={image.imageUrl} alt={`car ${index}`} onClick={() => setDisplayImage(image.imageUrl)} onError={e => { e.currentTarget.src = 'https://ridesappbucket.s3.amazonaws.com/select_car.png'; }} />
                       <span id='delete-small-images' onClick={() => {
                         setShowConfirmation(!showConfirmation)
                         setShowConfirmationId(image.id)

@@ -4,6 +4,7 @@ from flask import Blueprint, session, request, redirect
 from flask_login import login_required, current_user
 from app.models import User, db, Car, Review, Image
 from app.forms import LoginForm, SignUpForm, CarForm, ImageForm, ReviewForm
+from app.aws_upload import upload_file_to_s3, allowed_file, get_unique_filename
 from .auth_routes import validation_errors_to_error_messages
 
 
@@ -143,22 +144,49 @@ def delete_car(car_id):
 #POST/Add an Image to a Car
 @car_routes.route('/<int:car_id>/images', methods=['POST'])
 @login_required
-def create_image(car_id):
-  form = ImageForm()
-  form['csrf_token'].data = request.cookies['csrf_token']
+def upload_image(car_id):
+  if "image" not in request.files:
+    return {"errors": "image required"}, 400
 
-  if form.validate_on_submit():
-    try:
-      new_image = Image(
-        car_id = int(car_id),
-        image_url = form.data['image_url']
-      )
-    except:
-      return { "error": "Could not create new image" }, 404
-    db.session.add(new_image)
-    db.session.commit()
-    return new_image.to_dict(), 201
-  return { "errors": validation_errors_to_error_messages(form.errors) }, 400
+  image = request.files["image"]
+
+  if not allowed_file(image.filename):
+    return {"errors": "file type not permitted"}, 400
+
+  image.filename = get_unique_filename(image.filename)
+
+  upload = upload_file_to_s3(image)
+
+  if "url" not in upload:
+    # if the dictionary doesn't have a url key
+    # it means that there was an error when we tried to upload
+    # so we send back that error message
+    return upload, 400
+
+  url = upload["url"]
+  # flask_login allows us to get the current user from the request
+  new_image = Image(car_id = int(car_id), image_url=url)
+  db.session.add(new_image)
+  db.session.commit()
+  return new_image.to_dict(), 201
+
+
+# def create_image(car_id):
+#   form = ImageForm()
+#   form['csrf_token'].data = request.cookies['csrf_token']
+
+#   if form.validate_on_submit():
+#     try:
+#       new_image = Image(
+#         car_id = int(car_id),
+#         image_url = form.data['image_url']
+#       )
+#     except:
+#       return { "error": "Could not create new image" }, 404
+#     db.session.add(new_image)
+#     db.session.commit()
+#     return new_image.to_dict(), 201
+#   return { "errors": validation_errors_to_error_messages(form.errors) }, 400
 
 #POST/Add a Review for a Car
 @car_routes.route('/<int:car_id>/reviews', methods=['POST'])

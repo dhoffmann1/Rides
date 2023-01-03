@@ -136,9 +136,9 @@ const ReviewsPage = () => {
           </div>
           <div id="reviews-page-right-side-grid-container">
             <div id="reviews-page-preview-image-wrapper">
-            {car.images.length === 0 && <img id="reviews-page-preview-image" src={'https://www.willow-car-sales.co.uk/wp-content/uploads/2019/11/placeholder-image-1.jpg'} alt="preview" onClick={() => history.push(`/cars/${carId}/details`)} onError={e => { e.currentTarget.src = 'https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png'; }} />}
-            {car.images.length > 0 && <img id="reviews-page-preview-image" src={car.images[0]?.imageUrl} alt="preview" onClick={() => history.push(`/cars/${carId}/details`)} onError={e => { e.currentTarget.src = 'https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png'; }} />}
-              {/* <img id="reviews-page-preview-image" src={car.images[0]?.imageUrl} alt="preview" onClick={() => history.push(`/cars/${carId}/details`)} onError={e => { e.currentTarget.src = 'https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png'; }} /> */}
+            {car.images.length === 0 && <img id="reviews-page-preview-image" src={'https://ridesappbucket.s3.amazonaws.com/awaiting_car.png'} alt="preview" onClick={() => history.push(`/cars/${carId}/details`)} onError={e => { e.currentTarget.src = 'https://ridesappbucket.s3.amazonaws.com/select_car.png'; }} />}
+            {car.images.length > 0 && <img id="reviews-page-preview-image" src={car.images[0]?.imageUrl} alt="preview" onClick={() => history.push(`/cars/${carId}/details`)} onError={e => { e.currentTarget.src = 'https://ridesappbucket.s3.amazonaws.com/select_car.png'; }} />}
+              {/* <img id="reviews-page-preview-image" src={car.images[0]?.imageUrl} alt="preview" onClick={() => history.push(`/cars/${carId}/details`)} onError={e => { e.currentTarget.src = 'https://ridesappbucket.s3.amazonaws.com/select_car.png'; }} /> */}
             </div>
           </div>
         </div>

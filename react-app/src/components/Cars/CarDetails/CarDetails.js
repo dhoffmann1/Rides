@@ -19,7 +19,7 @@ const CarDetails = () => {
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [detailsPreviewImage, setDetailsPreviewImage] = useState(car?.images.length > 0 ? car.images[0].imageUrl : 'https://www.willow-car-sales.co.uk/wp-content/uploads/2019/11/placeholder-image-1.jpg')
+  const [detailsPreviewImage, setDetailsPreviewImage] = useState(car?.images.length > 0 ? car.images[0].imageUrl : 'https://ridesappbucket.s3.amazonaws.com/awaiting_car.png')
   // const [forceRender, setForceRender] = useState(false);
 
 
@@ -53,14 +53,14 @@ const CarDetails = () => {
             <div id="car-details-page-images-container">
               <div id="car-details-page-preview-image-container">
                 <div id="car-details-page-preview-image-wrapper">
-                  <img id="car-details-page-preview-image" src={detailsPreviewImage} alt="preview" onError={e => { e.currentTarget.src = 'https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png'; }} />
+                  <img id="car-details-page-preview-image" src={detailsPreviewImage} alt="preview" onError={e => { e.currentTarget.src = 'https://ridesappbucket.s3.amazonaws.com/select_car.png'; }} />
                 </div>
               </div>
               <div id="car-details-page-images-scroller-container">
                 {car.images.map((image, index) => {
                   return (
                     <div id="car-details-page-small-images-wrapper" key={index}>
-                      <img id="car-details-page-small-images" src={image.imageUrl} alt="small" onClick={() => setDetailsPreviewImage(image.imageUrl)} onError={e => { e.currentTarget.src = 'https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png'; }} />
+                      <img id="car-details-page-small-images" src={image.imageUrl} alt="small" onClick={() => setDetailsPreviewImage(image.imageUrl)} onError={e => { e.currentTarget.src = 'https://ridesappbucket.s3.amazonaws.com/select_car.png'; }} />
                     </div>
                   )
                 })}

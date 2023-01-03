@@ -54,8 +54,8 @@ const CarsSearchResults = () => {
                   <div id="cars-search-results-single-car-left-grid">
                     <div id="cars-search-results-single-car-image-container">
                       <div id="cars-search-results-single-car-image-wrapper">
-                        {car.images.length === 0 && <img id="cars-search-results-single-car-image" src={'https://www.willow-car-sales.co.uk/wp-content/uploads/2019/11/placeholder-image-1.jpg'} alt="preview" onError={e => { e.currentTarget.src = 'https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png'; }} />}
-                        {car.images.length > 0 && <img id="cars-search-results-single-car-image" src={car.images[0]?.imageUrl} alt="preview" onError={e => { e.currentTarget.src = 'https://eyadmousacars.com/wp-content/themes/maxwheels/libs/images/no-image.png'; }} />}
+                        {car.images.length === 0 && <img id="cars-search-results-single-car-image" src={'https://ridesappbucket.s3.amazonaws.com/awaiting_car.png'} alt="preview" onError={e => { e.currentTarget.src = 'https://ridesappbucket.s3.amazonaws.com/select_car.png'; }} />}
+                        {car.images.length > 0 && <img id="cars-search-results-single-car-image" src={car.images[0]?.imageUrl} alt="preview" onError={e => { e.currentTarget.src = 'https://ridesappbucket.s3.amazonaws.com/select_car.png'; }} />}
                       </div>
                     </div>
                   </div>
