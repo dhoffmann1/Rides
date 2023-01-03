@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NavLink, useParams } from 'react-router-dom';
 import { getAllCarsThunk } from '../../../store/cars';
-import { createImageThunk, deleteImageThunk } from '../../../store/images';
+import { deleteImageThunk } from '../../../store/images';
 
 import './CreateCarImages.css'
 
@@ -13,9 +13,10 @@ const CreateCarImages = () => {
 
   const car = carsArray.find(car => car.id === +carId)
 
-  const [errors, setErrors] = useState([]);
-  const [imageUrl, setImageUrl] = useState('');
+  // const [errors, setErrors] = useState([]);
+  const [image, setImage] = useState('');
   const [displayImage, setDisplayImage] = useState('https://ridesappbucket.s3.amazonaws.com/select_car.png');
+  const [imageLoading, setImageLoading] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [showConfirmationId, setShowConfirmationId] = useState(0);
   const [forceRender, setForceRender] = useState(false);
@@ -30,7 +31,7 @@ const CreateCarImages = () => {
   const handleDelete = image => {
     if (image.imageUrl === displayImage) setDisplayImage('https://ridesappbucket.s3.amazonaws.com/select_car.png')
     setShowConfirmation(false)
-    setErrors([])
+    // setErrors([])
     dispatch(deleteImageThunk(image.id))
       .then(() => setForceRender(!forceRender))
     // setForceRender(!forceRender)
@@ -39,26 +40,56 @@ const CreateCarImages = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setErrors([])
-    let errorsArray = []
+    // setErrors([])
+    // let errorsArray = []
 
     // Check the extensions of the images
-    let allowedImageExtensions = ['.jpg', '.jpeg', '.png'];
-    if (!allowedImageExtensions.some(ext => imageUrl.slice(-5).toLowerCase().includes(ext))) errorsArray.push('Image Url must end in .jpg, .jpeg or .png.')    // if (year < 1950 || year > 2024) errorsArray.push('Year must be between 1950 and 2024.');
+    // let allowedImageExtensions = ['.jpg', '.jpeg', '.png'];
+    // if (!allowedImageExtensions.some(ext => imageUrl.slice(-5).toLowerCase().includes(ext))) errorsArray.push('Image Url must end in .jpg, .jpeg or .png.');
     // Make sure the car does not have more than 12 images
-    if (car.images.length >= 12) errorsArray.push('A car can only have up to 12 images.')
+    // if (car.images.length >= 12) errorsArray.push('A car can only have up to 12 images.')
 
-    if (errorsArray.length > 0) {
-      alert('Could not create image.  Please see error messages above.')
-      setErrors(errorsArray);
-      return
+    // if (errorsArray.length > 0) {
+    //   alert('Could not create image.  Please see error messages above.')
+    //   setErrors(errorsArray);
+    //   return
+    // }
+    if (car.images.length >= 12) return alert('Could not create image.  A car can have a maximum of 12 images.')
+    if (image.type.slice(0, 5) !== "image") return alert('Could not create image.  File type must be image.')
+
+    const formData = new FormData();
+    formData.append("image", image);
+    // aws uploads can be a bit slow—displaying
+    // some sort of loading message is a good idea
+    setImageLoading(true);
+
+    const res = await fetch(`/api/cars/${carId}/images`, {
+        method: "POST",
+        body: formData,
+    });
+    if (res.ok) {
+        await res.json();
+        setImageLoading(false);
+        // history.push(`/cars/${carId}/images`);
+        setForceRender(!forceRender)
     }
+    else {
+        setImageLoading(false);
+        // a real app would probably use more advanced
+        // error handling
+        console.log("error");
+    }
+  }
 
-    setImageUrl('');
-    dispatch(createImageThunk(carId, { image_url: imageUrl }))
-      .then(() => setForceRender(!forceRender))
-    // setForceRender(!forceRender)
-  };
+  const updateImage = (e) => {
+    const file = e.target.files[0];
+    setImage(file);
+  }
+
+  // dispatch(createImageThunk(carId, { image_url: imageUrl }))
+  //   .then(() => setForceRender(!forceRender))
+  // // setForceRender(!forceRender)
+  // setImageUrl('');
 
   if (!car) return (<></>)
   if (user.id !== car.sellerId) return (<div>403: You are not the owner of this vehicle and do not have permission to view this page.</div>)
@@ -109,7 +140,7 @@ const CreateCarImages = () => {
               </div>
             </div>
           </div>
-          <form onSubmit={handleSubmit}>
+          {/* <form onSubmit={handleSubmit}>
             <div id='create-image-errors'>
               {errors.map((error, ind) => (
                 <div key={ind}>{error}</div>
@@ -133,7 +164,17 @@ const CreateCarImages = () => {
                 setImageUrl('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/2019-honda-civic-sedan-1558453497.jpg')
               }}>Create Demo Image</button>
             </div>
-            {/* <div id='create-image-go-to-your-garage' onClick={() => history.push('/cars/your-garage')}>Go To Your Garage</div> */}
+            <div id='create-image-go-to-your-garage' onClick={() => history.push('/cars/your-garage')}>Go To Your Garage</div>
+          </form> */}
+          <form onSubmit={handleSubmit}>
+            <input
+              // className='create-image-sign-in-submit-button'
+              type="file"
+              accept="image/*"
+              onChange={updateImage}
+            />
+            <button className='create-image-sign-in-submit-button' type="submit">Submit</button>
+            {(imageLoading)&& <p>Loading...</p>}
           </form>
         </div>
       </div>
