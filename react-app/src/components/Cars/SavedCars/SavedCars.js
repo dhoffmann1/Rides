@@ -1,12 +1,13 @@
-// import React, { useEffect, useState } from "react";
-// import { useDispatch, useSelector } from "react-redux";
-// import { NavLink } from "react-router-dom";
-// import { deleteCarThunk } from "../../../store/cars";
-// import { getUserThunk } from "../../../store/session";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { NavLink, useHistory } from "react-router-dom";
 import "./SavedCars.css";
 
 const SavedCars = () => {
-  // const sessionUser = useSelector(state => state.session.user);
+  const sessionUser = useSelector(state => state.session.user);
+  console.log(sessionUser)
+  const userSavedCars = sessionUser.userSavedCars;
+  console.log(userSavedCars)
   // const dispatch = useDispatch();
 
   // const [showConfirmation, setShowConfirmation] = useState(false);

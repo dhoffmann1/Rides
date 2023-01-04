@@ -6,6 +6,8 @@ const GET_ALL_CARS = 'cars/getAllCars'
 const CREATE_CAR = 'cars/createCar'
 const UPDATE_CAR = 'cars/updateCar'
 const DELETE_CAR = 'cars/deleteCar'
+// const SAVE_CAR = 'cars/saveCar'
+// const UNSAVE_CAR = 'cars/unsaveCar'
 // const RESET_CAR = 'cars/resetCars'
 
 
@@ -70,6 +72,19 @@ const deleteCarAction = (id) => {
   }
 }
 
+// const saveCarAction = (id) => {
+//   return {
+//     type: SAVE_CAR,
+//     id
+//   }
+// }
+
+// const unsaveCarAction = (id) => {
+//   return {
+//     type: UNSAVE_CAR,
+//     id
+//   }
+// }
 
 /********************************** THUNKS **********************************/
 
@@ -172,6 +187,32 @@ export const deleteCarThunk = (id) => async dispatch => {
 //         type: RESET_POSTS
 //     }
 // }
+
+export const saveCarThunk = (carId) => async dispatch => {
+  const response = await fetch(`/api/cars/${carId}/saves`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(carId)
+  })
+  if (response.ok){
+    const car = await response.json()
+    dispatch(updateCarAction(car))
+    return car
+  }
+}
+
+export const unsaveCarThunk = (carId) => async dispatch => {
+  const response = await fetch(`/api/cars/${carId}/saves`, {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(carId)
+  })
+  if (response.ok){
+    const car = await response.json()
+    dispatch(updateCarAction(car))
+    return car
+  }
+}
 
 
 /********************************** REDUCER **********************************/

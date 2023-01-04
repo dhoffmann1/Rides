@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useHistory, useParams } from "react-router-dom";
-import { getAllCarsThunk } from "../../../store/cars";
+import { getAllCarsThunk, saveCarThunk, unsaveCarThunk } from "../../../store/cars";
 import { getUserThunk } from "../../../store/session";
 import Calculator from "../../Widgets/Calculator";
 import ContactSeller from "../../Widgets/ContactSeller";
@@ -14,17 +14,12 @@ const CarDetails = () => {
   const sessionUser = useSelector(state => state.session.user);
   const carReviews = car?.reviews.slice(0, 3);
 
-  // console.log('carReviews in CarDetails', carReviews)
+  let isSaved = car?.carSavedCars?.some(user => user.id === +sessionUser.id);
 
   const dispatch = useDispatch();
   const history = useHistory();
 
   const [detailsPreviewImage, setDetailsPreviewImage] = useState(car?.images.length > 0 ? car.images[0].imageUrl : 'https://ridesappbucket.s3.amazonaws.com/awaiting_car.png')
-  // const [forceRender, setForceRender] = useState(false);
-
-
-  // console.log('sessionUser in CarDetails Component', sessionUser)
-  // console.log('car in CarDetails Component', car)
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -40,7 +35,15 @@ const CarDetails = () => {
     return () => {
       clearTimeout(timer);
     }
-  }, [dispatch, car?.images.length, sessionUser.id])
+  }, [dispatch, car?.images.length, sessionUser.id, car?.carSavedCars.length])
+
+  const saveComponentFunc = async () => {
+    dispatch(saveCarThunk(carId))
+  }
+
+  const unsaveComponentFunc = async () => {
+    dispatch(unsaveCarThunk(carId))
+  }
 
   if (!sessionUser) return <>Session User Not Loaded</>
   if (!car) return <>Could not find car with this ID</>
@@ -69,7 +72,8 @@ const CarDetails = () => {
             <div id="car-details-page-details-container">
               <div id="car-details-page-used-save-container">
                 <div id="car-details-page-used-info">{car.new ? 'New' : 'Used'}</div>
-                {/* <div id="car-details-page-saved-component">Saved Component (Placeholder)</div> */}
+                {!isSaved && <button id="car-details-page-unsaved-component" onClick={() => saveComponentFunc()}>Unsaved Component (Placeholder)</button>}
+                {isSaved && <button id="car-details-page-saved-component" onClick={() => unsaveComponentFunc()}>Saved Component (Placeholder)</button>}
               </div>
               <div id="car-details-page-year-make-model-trim">{car.year} {car.make} {car.model} {car.trim}</div>
               <div id="car-details-page-milage">{car.miles.toLocaleString()} mi.</div>

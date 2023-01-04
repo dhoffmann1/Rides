@@ -138,8 +138,28 @@ def delete_car(car_id):
 #POST/Add extra features to a car by car ID
 
 #POST/Add new saved-cars to user's list by car ID
+@car_routes.route('/<int:car_id>/saves', methods=['POST'])
+@login_required
+def save_car(car_id):
+  car_to_save = Car.query.get_or_404(car_id)
+  car_to_save.car_saved_cars.append(current_user)
 
-#DELETE saved-car from user's list by car ID
+  db.session.add(car_to_save)
+  db.session.commit()
+  return car_to_save.to_dict()
+
+#DELETE/ saved-car from user's list by car ID
+@car_routes.route('/<int:car_id>/saves', methods=['DELETE'])
+@login_required
+def unsave_car(car_id):
+  car_to_unsave = Car.query.get_or_404(car_id)
+  # car_to_unsave.car_saved_cars.append(current_user)
+  for user in car_to_unsave.car_saved_cars:
+    if user.id == current_user.id:
+      car_to_unsave.car_saved_cars.remove(user)
+      db.session.add(car_to_unsave)
+      db.session.commit()
+      return car_to_unsave.to_dict()
 
 #POST/Add an Image to a Car
 @car_routes.route('/<int:car_id>/images', methods=['POST'])
