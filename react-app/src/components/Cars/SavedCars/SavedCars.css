@@ -14,9 +14,136 @@
 }
 
 #saved-cars-title {
+  font-size: 1.8em;
+  font-weight: bolder;
+  margin-bottom: 30px;
+}
+
+#saved-cars-cars-container {
   display: flex;
-  justify-content: flex-start;
-  margin-bottom: 80px;
-  font-size: 2.6em;
-  /* width: 320px; */
+  flex-direction: column;
+  width: 80%;
+}
+
+#saved-cars-go-back-div {
+  margin-top: 25px;
+}
+
+#saved-cars-go-back-button {
+  cursor: pointer;
+  color: rgb(251, 160, 238);
+}
+
+#saved-cars-go-back-button:hover {
+  transition: 0.4s ease all;
+  font-size: 1.2em;
+}
+
+#saved-cars-single-car-container {
+  border: solid 1px #444444;
+  padding: 2px;
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: rgb(41, 41, 41);
+  cursor: pointer;
+  /* box-shadow: 2px 2px 2px rgb(215, 215, 215, .4); */
+}
+
+#saved-cars-single-car-container:hover {
+  border: solid 3px #515151;
+  padding: 0px;
+}
+
+#saved-cars-single-car-container:hover #saved-cars-single-car-year-make-model-trim {
+  text-decoration: underline;
+}
+
+#saved-cars-single-car-grid {
+  display: grid;
+  grid-template-columns: 40% 60%;
+  padding: 10px;
+  padding-left: 0px;
+  gap: 10px
+}
+
+#saved-cars-single-car-left-grid {
+  display: flex;
+  width: 100%;
+}
+
+#saved-cars-single-car-image-container {
+  display: flex;
+  width: 100%;
+  background-color: rgb(28, 27, 27);
+  height: 200px;
+  align-items: center;
+  justify-content: center;
+}
+
+#saved-cars-single-car-image-wrapper {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+#saved-cars-single-car-image {
+  display: block;
+  object-fit: contain;
+  max-width: 100%;
+}
+
+#saved-cars-single-car-right-grid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-right: 10px;
+  box-sizing: border-box;
+}
+
+#saved-cars-single-car-used-saved-container {
+  display: flex;
+  margin: 15px 0px;
+  justify-content: space-between;
+}
+
+#saved-cars-single-car-used-component {
+  font-size: 1.0em;
+  color: rgb(215, 215, 215, 0.8);
+}
+
+#saved-cars-single-car-year-make-model-trim {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+#saved-cars-single-car-milage {
+ font-size: 1.0em;
+ margin-bottom: 10px;
+}
+
+#saved-cars-single-car-price {
+  font-size: 1.6em;
+  margin-bottom: 15px;
+}
+
+#saved-cars-single-car-great-deal {
+  width: fit-content;
+  background-color: rgba(31, 255, 34, 0.3);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#saved-cars-single-car-good-deal {
+  width: fit-content;
+  background-color: rgba(223, 248, 30, 0.3);
+  padding: 5px;
+  border-radius: 5px;
+}
+
+#saved-cars-single-car-fair-deal {
+  width: fit-content;
+  background-color: rgba(222, 169, 53, 0.3);
+  padding: 5px;
+  border-radius: 5px;
 }

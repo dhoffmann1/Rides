@@ -100,9 +100,33 @@
   font-size: 0.9em;
 }
 
-/* #car-details-page-saved-component {
+#car-details-page-unsaved-component {
   font-size: 0.9em;
-} */
+  color: rgb(251, 160, 238);
+  cursor: pointer;
+  /* margin-bottom: 20px; */
+  height: 30px;
+}
+
+#car-details-page-unsaved-component:hover {
+  font-size: 1.2em;
+  transition: 0.4s ease all;
+  text-decoration: underline;
+}
+
+#car-details-page-saved-component {
+  font-size: 0.9em;
+  color: rgb(251, 160, 238);
+  cursor: pointer;
+  /* margin-bottom: 20px; */
+  height: 30px;
+}
+
+#car-details-page-saved-component:hover {
+  font-size: 1.2em;
+  transition: 0.4s ease all;
+  text-decoration: underline;
+}
 
 #car-details-page-year-make-model-trim {
   font-size: 1.4em;

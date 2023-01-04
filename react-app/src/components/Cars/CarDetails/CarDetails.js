@@ -72,8 +72,8 @@ const CarDetails = () => {
             <div id="car-details-page-details-container">
               <div id="car-details-page-used-save-container">
                 <div id="car-details-page-used-info">{car.new ? 'New' : 'Used'}</div>
-                {!isSaved && <button id="car-details-page-unsaved-component" onClick={() => saveComponentFunc()}>Unsaved Component (Placeholder)</button>}
-                {isSaved && <button id="car-details-page-saved-component" onClick={() => unsaveComponentFunc()}>Saved Component (Placeholder)</button>}
+                {!isSaved && <div id="car-details-page-unsaved-component" onClick={() => saveComponentFunc()}>Click Here to Save this Car</div>}
+                {isSaved && <div id="car-details-page-saved-component" onClick={() => unsaveComponentFunc()}>Click Here to Unsave this Car</div>}
               </div>
               <div id="car-details-page-year-make-model-trim">{car.year} {car.make} {car.model} {car.trim}</div>
               <div id="car-details-page-milage">{car.miles.toLocaleString()} mi.</div>
